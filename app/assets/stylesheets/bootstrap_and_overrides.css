@@ -4,4 +4,44 @@
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
-  */
+*/
+
+body {
+  background-color: white;
+}
+
+.navbar {
+  background-color: white;
+  border-style: none;
+}
+
+.info-boxes {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.info-box i {
+  font-size: 50px;
+}
+
+.info-box {
+  padding-top: 20px;
+  float: left;
+}
+
+.img-responsive {
+  max-width: 1500px;
+  max-height: 600px;
+  position: relative;
+}
+
+.image-caption {
+  background-color: rgba(100, 100, 100, .5);
+  position: absolute;
+  top: 150px;
+  left: 300px;
+  color: white;
+  text-align: center;
+  width: 60%;
+}
