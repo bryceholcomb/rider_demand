@@ -16,6 +16,7 @@ body {
 }
 
 .navbar {
+  padding-top: 10px;
   background-color: white;
   border-style: none;
 }
@@ -33,6 +34,10 @@ body {
 .info-box {
   padding-top: 20px;
   float: left;
+}
+
+.user-image {
+  height: 70px;
 }
 
 .img-responsive {

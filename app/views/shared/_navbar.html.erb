@@ -3,6 +3,7 @@
     <% if current_user.nil? %>
       <%= menu_item "Login with Uber", "/auth/uber" %>
     <% else %>
+      <%= image_tag current_user.image_url, class: "img-circle img-thumbnail user-image" %>
       <%= drop_down "Profile" do %>
         <%= menu_item "View Profile", "" %>
         <%= menu_item "Edit Profile", "" %>
