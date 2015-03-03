@@ -1,3 +1,5 @@
+require "httparty"
+
 class Uber
   include HTTParty
   base_uri "https://api.uber.com/v1"
