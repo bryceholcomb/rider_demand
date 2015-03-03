@@ -1,2 +1,6 @@
-<div id="map">
-</div>
+<% if current_user %>
+  Welcome <%= current_user.first_name %>
+<% end %>
+
+
+<div id="map-canvas"></div>

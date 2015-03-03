@@ -5,6 +5,11 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
 */
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background-color: white;
@@ -44,8 +49,4 @@ body {
   color: white;
   text-align: center;
   width: 60%;
-}
-
-#map {
-  height: 180px;
 }

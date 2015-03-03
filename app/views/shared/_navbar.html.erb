@@ -1,6 +1,13 @@
 <%= nav_bar static: :top, responsive: true, brand: "RiderDemand", brand_link: root_path do %>
   <%= menu_group pull: :right do %>
-    <%= menu_item "Sign Up" %>
-    <%= menu_item "Log In" %>
+    <% if current_user.nil? %>
+      <%= menu_item "Login with Uber", "/auth/uber" %>
+    <% else %>
+      <%= drop_down "Profile" do %>
+        <%= menu_item "View Profile", "" %>
+        <%= menu_item "Edit Profile", "" %>
+        <%= menu_item "Logout", "" %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

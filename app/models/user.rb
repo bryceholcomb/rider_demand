@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     user.image_url = auth.info.picture
     user.promo_code = auth.info.promo_code
     user.token = auth.credentials.token
+    user.save
 
     user
   end
