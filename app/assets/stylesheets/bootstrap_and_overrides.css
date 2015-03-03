@@ -36,8 +36,6 @@ body {
 }
 
 .img-responsive {
-  max-width: 1500px;
-  max-height: 600px;
   position: relative;
 }
 
