@@ -18,7 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-uber'
 gem 'figaro'
 gem 'unicorn'
-gem 'httparty', group: :test
+gem 'httparty'
 gem 'webmock', group: :test
 gem 'simplecov', require: false, group: :test
 
