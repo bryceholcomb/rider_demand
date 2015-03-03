@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>RiderDemand</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -27,6 +26,5 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     <%= yield %>
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
   </body>
 </html>

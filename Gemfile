@@ -18,16 +18,16 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-uber'
 gem 'figaro'
 gem 'unicorn'
+gem 'httparty', group: :test
+gem 'webmock', group: :test
+gem 'simplecov', require: false, group: :test
 
 group :development, :test do
+  gem 'vcr'
   gem 'rspec-rails'
   gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
