@@ -23,3 +23,7 @@ test:
 production:
   <<: *default
   database: db/rider_demand_production
+
+staging:
+  <<: *default
+  database: db/rider_demand_staging

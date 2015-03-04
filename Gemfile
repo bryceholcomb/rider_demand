@@ -22,10 +22,13 @@ gem 'httparty'
 gem 'webmock', group: :test
 gem 'simplecov', require: false, group: :test
 
+group :development, :test, :staging do
+  gem 'pry'
+end
+
 group :development, :test do
   gem 'vcr'
   gem 'rspec-rails'
-  gem 'pry'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '~> 2.0'
