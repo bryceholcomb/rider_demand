@@ -40,6 +40,17 @@ body {
   font-size: 1.0em;
 }
 
+.user-info-box h3 {
+  font-size: 40px;
+}
+
+.user-info-box {
+  padding-top: 0px !important;
+  font-size: 15px;
+  text-align: center;
+  color: #777;
+}
+
 .info-boxes {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -53,11 +64,26 @@ body {
 
 .info-box {
   padding-top: 20px;
+  padding-bottom: 20px;
   float: left;
 }
 
 .user-image {
   height: 60px;
+}
+
+.profile-image {
+  max-height: 150px;
+}
+
+.profile-image-box {
+  margin-right: auto;
+  margin-left: auto;
+  width: 10em;
+}
+
+.profile-image-row {
+  padding-top: 20px;
 }
 
 .btn-primary {
@@ -77,12 +103,11 @@ body {
 .image-caption {
   background-color: rgba(100, 100, 100, .7);
   position: absolute;
-  top: 170px;
   left: 250px;
+  top: 100px;
   color: white;
   text-align: center;
-  width: 60%;
-  padding: 0 20px 20px 20px;
+  padding-bottom: 20px;
 }
 
 #map {

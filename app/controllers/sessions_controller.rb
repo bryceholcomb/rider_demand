@@ -4,9 +4,13 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:notice] = "You have successfully logged in"
-      redirect_to predictor_path
+      if user.first_visit == true
+        redirect_to edit_user_path(user), notice: "Before we let you go, please provide a little more info so we can help you find more rides!"
+      elsif user.first_visit == false
+        redirect_to predictor_path
+      end
     else
-      redirect_to root_path
+      redirect_to root_path, alert: "Invalid login credentials"
     end
   end
 

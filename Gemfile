@@ -18,7 +18,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-uber'
 gem 'figaro'
 gem 'unicorn'
+gem 'bootstrap_form'
 gem 'httparty'
+gem 'factory_girl_rails', '~> 4.0', group: :test
 gem 'webmock', group: :test
 gem 'simplecov', require: false, group: :test
 
@@ -27,6 +29,9 @@ group :development, :test, :staging do
 end
 
 group :development, :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
   gem 'vcr'
   gem 'rspec-rails'
   gem 'better_errors'
