@@ -4,21 +4,10 @@
     <title>RiderDemand</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+    <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js">
-      </script>
-      <script type="text/javascript">
-        function initialize() {
-          var mapOptions = {
-center: { lat: 39.739, lng: -104.990},
-        zoom: 12
-          };
-          var map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
-        }
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
   </head>
   <body>
     <%= bootstrap_flash %>

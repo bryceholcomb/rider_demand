@@ -5,7 +5,7 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
 */
-html, body, #map-canvas {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -13,18 +13,38 @@ html, body, #map-canvas {
 
 body {
   background-color: white;
+  font-family: 'Lato', sans-serif;
+  color: black;
 }
 
 .navbar {
   padding-top: 10px;
   background-color: white;
   border-style: none;
+  margin-bottom: 10px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #777;
+}
+
+.navbar-default .navbar-brand {
+  color: #777;
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+}
+
+.navbar-link {
+  font-size: 1.0em;
 }
 
 .info-boxes {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
+  color: #777;
 }
 
 .info-box i {
@@ -37,19 +57,39 @@ body {
 }
 
 .user-image {
-  height: 70px;
+  height: 60px;
 }
 
-.img-responsive {
-  position: relative;
+.btn-primary {
+  color: #777;
+  opacity: 0.9;
+  background-color: white;
+  border-color: #777;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #777;
+  border-color: #777;
 }
 
 .image-caption {
-  background-color: rgba(100, 100, 100, .5);
+  background-color: rgba(100, 100, 100, .7);
   position: absolute;
-  top: 150px;
-  left: 300px;
+  top: 170px;
+  left: 250px;
   color: white;
   text-align: center;
   width: 60%;
+  padding: 0 20px 20px 20px;
+}
+
+#map {
+  height: 600px;
+  border: none;
+  float:center;
+  top: 5px;
+  bottom:0;
+  width:100%;
 }

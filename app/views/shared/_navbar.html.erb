@@ -1,7 +1,7 @@
 <%= nav_bar static: :top, responsive: true, brand: "RiderDemand", brand_link: root_path do %>
   <%= menu_group pull: :right do %>
     <% if current_user.nil? %>
-      <%= menu_item "Login with Uber", "/auth/uber" %>
+      <%= menu_item "Login with Uber", "/auth/uber", class: "navbar-link" %>
     <% else %>
       <%= image_tag current_user.image_url, class: "img-circle img-thumbnail user-image" %>
       <%= drop_down "Profile" do %>

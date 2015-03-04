@@ -1,10 +1,10 @@
 <div class="img-responsive">
   <%= image_tag "uber_driver_cropped.jpg" %>
   <div class="image-caption">
-    <h1>Get More Rides</h1>
-    <h3>With our innovative tools you can spend less time checking the Uber rider app and get more riders</h3>
+    <h1>GET MORE RIDES</h1>
+    <h3>with our innovative tools you can spend less time checking your phone and more time getting rides</h3>
     <% if current_user.nil? %>
-      <%= link_to "Login with Uber", "/auth/uber", class: "btn btn-lg" %>
+      <%= link_to "Login with Uber", "/auth/uber", class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>
@@ -24,7 +24,7 @@
       <div class="col-md-4 info-box">
         <i class="fa fa-users"></i>
         <h3>Community</h3>
-        <p>Find out what other drivers are doing to get more rides</p>
+        <p>Find out what other drivers in your city are doing to get more rides</p>
       </div>
     </div>
   </div>
