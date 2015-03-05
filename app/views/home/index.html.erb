@@ -5,10 +5,15 @@
       <div class="col-md-2">
       </div>
       <div class="col-md-8 image-caption">
-        <h1>GET MORE RIDES</h1>
-        <h3>with our innovative tools you can spend less time checking your phone and more time getting rides</h3>
+        <div class="caption-title">
+          <h1>GET MORE RIDES</h1>
+        </div>
+        <div class="caption-subtitle">
+          <h3>with our innovative tools you can spend less time checking your phone and more time getting rides</h3>
+        </div>
         <% if current_user.nil? %>
-          <%= link_to "Login with Uber", "/auth/uber", class: "btn btn-lg btn-primary" %>
+          <%= link_to "Test Drive the App", test_drive_path, class: "btn btn-lg btn-success" %>
+          <%= link_to "Login with Uber", "/auth/uber", class: "btn btn-lg btn-uber" %>
         <% end %>
       </div>
       <div class="col-md-2">
