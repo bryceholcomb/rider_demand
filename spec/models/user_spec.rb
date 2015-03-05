@@ -25,6 +25,19 @@ RSpec.describe User, :type => :model do
     expect(valid_user.formatted_created_at).to eq "02/01/2015"
   end
 
+  it "can have many cities" do
+    expect(valid_user.cities).to eq([])
+  end
+
+  it "has many cities" do
+    valid_user.save
+    valid_user.cities.create(name: "Denver")
+    valid_user.cities.create(name: "San Francisco")
+    valid_user.cities.create(name: "Portland")
+    expect(valid_user.cities.count).to eq(3)
+    expect(valid_user.cities.first.name).to eq("Denver")
+  end
+
   it "is their first visit upon creation" do
     user = create(:user)
     expect(user.first_visit).to eq(true)

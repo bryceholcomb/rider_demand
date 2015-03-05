@@ -48,7 +48,7 @@ body {
   padding-top: 0px !important;
   font-size: 15px;
   text-align: center;
-  color: #777;
+  color: white;
 }
 
 .info-boxes {
@@ -82,8 +82,9 @@ body {
   width: 10em;
 }
 
-.profile-image-row {
+.profile-row {
   padding-top: 20px;
+  background-color: #777;
 }
 
 .btn-primary {

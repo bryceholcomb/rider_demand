@@ -5,9 +5,9 @@
     <% else %>
       <%= image_tag current_user.image_url, class: "img-circle img-thumbnail user-image" %>
       <%= drop_down "Profile" do %>
-        <%= menu_item "View Profile", "" %>
-        <%= menu_item "Edit Profile", "" %>
-        <%= menu_item "Logout", "" %>
+        <%= menu_item "View Profile", user_path(current_user) %>
+        <%= menu_item "Edit Profile", edit_user_path(current_user) %>
+        <%= menu_item "Logout", logout_path, method: "delete" %>
       <% end %>
     <% end %>
   <% end %>

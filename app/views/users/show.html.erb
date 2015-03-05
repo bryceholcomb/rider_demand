@@ -1,25 +1,44 @@
 <div class="col-md-12">
-  <div class="row profile-image-row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <div class="profile-image-box">
-        <%= image_tag @user.image_url, class: "img-circle img-thumbnail profile-image" %>
+  <div class="row profile-row">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class="profile-image-box">
+          <%= image_tag @user.image_url, class: "img-circle img-thumbnail profile-image" %>
+        </div>
+      </div>
+      <div class="col-md-4">
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-3 info-box">
+      </div>
+      <div class="col-md-6 info-box user-info-box">
+        <h3><strong><%= @user.full_name %></strong></h3>
+        <p><%= @user.email %></p>
+        <p><strong>Promo Code:</strong> &nbsp<%= @user.promo_code %></p>
+      </div>
+      <div class="col-md-3 info-box">
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3 info-box">
+  <div class="row info-boxes">
+    <div class="col-md-4 info-box">
+      <h3>Statistics</h3>
+      <p><strong>Member Since:</strong> &nbsp<%= @user.formatted_created_at %></p>
     </div>
-    <div class="col-md-6 info-box user-info-box">
-      <h3><strong><%= @user.full_name %></strong></h3>
-      <p><%= @user.email %></p>
-      <p><strong>Promo Code:</strong> &nbsp<%= @user.promo_code %></p>
-      <p><strong>Member Since:</strong> &nbsp<%= @user.formatted_created_at %>
+    <div class="col-md-4 info-box">
+      <h3>Vehicle</h3>
+      <div class="vehicle-image">
+        <%= image_tag "Tahoe.jpg" %>
+      </div>
+    </div>
+    <div class="col-md-4 info-box">
+      <h3>Cities</h3>
+      <% @user.cities.each do |city| %>
+        <h5><%= city %></h5>
+      <% end %>
+    </div>
   </div>
-  <div class="col-md-3 info-box">
-  </div>
-</div>
 </div>
