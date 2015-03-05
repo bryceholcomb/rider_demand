@@ -1,9 +1,11 @@
 <%= nav_bar static: :top, responsive: true, brand: "RiderDemand", brand_link: root_path do %>
   <%= menu_group pull: :right do %>
     <% if current_user.nil? %>
+      <%= menu_item "Test Drive the App", test_drive_path, class: "navbar-link" %>
       <%= menu_item "Login with Uber", "/auth/uber", class: "navbar-link" %>
     <% else %>
       <%= image_tag current_user.image_url, class: "img-circle img-thumbnail user-image" %>
+      <%= menu_item "Find Your Next Ride", predictor_path, class: "navbar-link" %>
       <%= drop_down "Profile" do %>
         <%= menu_item "View Profile", user_path(current_user) %>
         <%= menu_item "Edit Profile", edit_user_path(current_user) %>

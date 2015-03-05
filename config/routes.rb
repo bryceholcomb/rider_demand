@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   root 'home#index'
   get '/predictor', to: 'predictor#index'
+  get '/test_drive', to: 'predictor#show'
   get '/privacy', to: 'home#privacy_policy'
   resources :users
 end

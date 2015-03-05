@@ -51,6 +51,9 @@ body {
   color: white;
 }
 
+.stats-info-box {
+}
+
 .info-boxes {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -70,6 +73,10 @@ body {
 
 .user-image {
   height: 60px;
+}
+
+.vehicle-image {
+  max-width: 20em;
 }
 
 .profile-image {
@@ -111,11 +118,33 @@ body {
   padding-bottom: 20px;
 }
 
+.predictor-option {
+  height: 50px;
+  font-size: 20px;
+}
+
+.predictor-nav-bar h2 {
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+
+.predictor-nav-bar a {
+  color: white;
+}
+.predictor-nav-bar {
+  color: white;
+  padding-left: 10px;
+  height: 600px;
+  width: 25%;
+  float: left;
+  background-color: #777;
+}
+
 #map {
   height: 600px;
   border: none;
-  float:center;
+  float: right;
   top: 5px;
-  bottom:0;
-  width:100%;
+  bottom: 0;
+  width: 75%;
 }

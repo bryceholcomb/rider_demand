@@ -24,20 +24,19 @@
     </div>
   </div>
   <div class="row info-boxes">
-    <div class="col-md-4 info-box">
+    <div class="col-md-4 info-box stats-info-box">
       <h3>Statistics</h3>
       <p><strong>Member Since:</strong> &nbsp<%= @user.formatted_created_at %></p>
+      <p><strong>Total Rides:</strong> &nbsp 100</p>
     </div>
-    <div class="col-md-4 info-box">
+    <div class="col-md-4 info-box stats-info-box">
       <h3>Vehicle</h3>
-      <div class="vehicle-image">
-        <%= image_tag "Tahoe.jpg" %>
-      </div>
+        <%= image_tag "Tahoe.jpg", class: "vehicle-image" %>
     </div>
-    <div class="col-md-4 info-box">
+    <div class="col-md-4 info-box stats-info-box">
       <h3>Cities</h3>
       <% @user.cities.each do |city| %>
-        <h5><%= city %></h5>
+        <h5><%= city.name %></h5>
       <% end %>
     </div>
   </div>
