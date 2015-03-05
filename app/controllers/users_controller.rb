@@ -13,9 +13,10 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
+      assign_user_cities(params, user)
       redirect_to user_path(user), notice: "You have successfully updated your information"
     else
-      redirect_to user_path(user), alert: "Invalid information"
+      redirect_to user_path(user), alert: "The information you have provided cannot be processed at this time"
     end
   end
 
@@ -25,7 +26,18 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: "That user doesn't exist"
   end
 
+  def assign_user_cities(parameters, user)
+    params[:user][:cities].shift
+    params[:user][:cities].each do |id|
+      city = City.find(id)
+      user.cities << city
+    end
+  end
+
   def user_params
-    params.require(:user).permit(:phone_number)
+    params.require(:user).permit(:phone_number,
+                                 :vehicle_photo,
+                                 :uber_start_date,
+                                 :avg_weekly_rides)
   end
 end

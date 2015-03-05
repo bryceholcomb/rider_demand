@@ -64,6 +64,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.5)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -145,6 +149,11 @@ GEM
     omniauth-uber (1.0.1)
       omniauth (~> 1.2)
       omniauth-oauth2 (~> 1.1)
+    paperclip (4.2.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -273,6 +282,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   omniauth-uber
+  paperclip (~> 4.2)
   pg
   pry
   rails (= 4.2.0)

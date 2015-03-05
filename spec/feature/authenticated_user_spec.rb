@@ -17,10 +17,13 @@ describe "an authenticated user" do
 
   it "can edit their information" do
     user = create(:user, created_at: Date.new(2015, 3, 1))
+    create(:city, name: "San Francisco")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit root_path
     click_link_or_button "Edit Profile"
     fill_in "user_phone_number", with: "3364290800"
+    select "San Francisco", from: "user_cities"
+    fill_in "user_avg_weekly_rides", with: 100
     click_link_or_button "Submit"
     expect(page).to have_content("You have successfully updated your information")
     expect(current_path).to eq user_path(user)
@@ -28,6 +31,8 @@ describe "an authenticated user" do
     expect(page).to have_content "bryce@example.com"
     expect(page).to have_content "ABCD"
     expect(page).to have_content "03/01/2015"
+    expect(page).to have_content "100"
+    expect(page).to have_content "San Francisco"
   end
 
   it "can view their profile" do

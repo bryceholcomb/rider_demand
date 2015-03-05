@@ -1,4 +1,9 @@
-<%= bootstrap_form_for(@user) do |f| %>
+<%= bootstrap_form_for(@user, html: { multipart: true }) do |f| %>
   <%= f.text_field :phone_number %>
+  <%= f.collection_select(:cities, City.all, :id, :name, {:prompt => "Please Select a Sector"}, {:multiple => true}) %>
+  <%= f.file_field :vehicle_photo, label: "Vehicle Photo (optional)" %>
+  <%= f.date_field :uber_start_date, label: "When did you start driving for Uber?" %>
+  <%= f.number_field :avg_weekly_rides, label: "Average Weekly Rides" %>
+  <h5>We will automatically update the rest of your info when you change it with Uber</h5>
   <%= f.submit "Submit" %>
 <% end %>

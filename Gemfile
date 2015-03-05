@@ -23,6 +23,7 @@ gem 'httparty'
 gem 'factory_girl_rails', '~> 4.0', group: :test
 gem 'webmock', group: :test
 gem 'simplecov', require: false, group: :test
+gem "paperclip", "~> 4.2"
 
 group :development, :test, :staging do
   gem 'pry'

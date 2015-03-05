@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :user_cities
   has_many :cities, through: :user_cities
+  has_attached_file :vehicle_photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/default.png"
+  validates_attachment_content_type :vehicle_photo, :content_type => /\Aimage\/.*\Z/
 
   after_create do |user|
     user.first_visit = true
@@ -16,8 +18,8 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def formatted_created_at
-    created_at.strftime "%m/%d/%Y"
+  def formatted_date(attribute)
+    attribute.strftime "%m/%d/%Y"
   end
 
   def self.find_or_create_from_auth(auth)

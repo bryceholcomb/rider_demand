@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304233442) do
+ActiveRecord::Schema.define(version: 20150305190834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,15 @@ ActiveRecord::Schema.define(version: 20150304233442) do
     t.string   "uid"
     t.string   "image_url"
     t.string   "promo_code"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "phone_number"
+    t.string   "vehicle_photo_file_name"
+    t.string   "vehicle_photo_content_type"
+    t.integer  "vehicle_photo_file_size"
+    t.datetime "vehicle_photo_updated_at"
+    t.datetime "uber_start_date"
+    t.integer  "avg_weekly_rides"
   end
 
   add_foreign_key "user_cities", "cities"

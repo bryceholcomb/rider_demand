@@ -21,8 +21,8 @@ RSpec.describe User, :type => :model do
     expect(valid_user.full_name).to eq "Bryce Holcomb"
   end
 
-  it "has a formatted created at" do
-    expect(valid_user.formatted_created_at).to eq "02/01/2015"
+  it "has a formatted date" do
+    expect(valid_user.formatted_date(valid_user.created_at)).to eq "02/01/2015"
   end
 
   it "can have many cities" do

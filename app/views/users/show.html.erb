@@ -26,12 +26,13 @@
   <div class="row info-boxes">
     <div class="col-md-4 info-box stats-info-box">
       <h3>Statistics</h3>
-      <p><strong>Member Since:</strong> &nbsp<%= @user.formatted_created_at %></p>
-      <p><strong>Total Rides:</strong> &nbsp 100</p>
+      <p><strong>Member Since:</strong> &nbsp<%= @user.formatted_date(@user.created_at) %></p>
+      <p><strong>Uber Driver Since:</strong> &nbsp<%= @user.formatted_date(@user.uber_start_date) %></p>
+      <p><strong>Average Weekly Rides:</strong> &nbsp<%= @user.avg_weekly_rides %></p>
     </div>
     <div class="col-md-4 info-box stats-info-box">
       <h3>Vehicle</h3>
-        <%= image_tag "Tahoe.jpg", class: "vehicle-image" %>
+        <%= image_tag @user.vehicle_photo.url(:medium), class: "vehicle-image" %>
     </div>
     <div class="col-md-4 info-box stats-info-box">
       <h3>Cities</h3>
