@@ -19,4 +19,13 @@
   L.mapbox.accessToken = 'pk.eyJ1IjoiYmhvbGNvbWIiLCJhIjoiRkliLWdBVSJ9.wz_RjKxc0iOUgc9Vb2ff3A';
   var map = L.mapbox.map('map', 'bholcomb.lc7kd3m2')
   .setView([39.739, -104.990], 13);
+
+  $.ajax({
+    dataType: 'text',
+    url: '/events',
+    success:function(data) {
+      geojson = $.parseJSON(data)
+      map.featureLayer.setGeoJSON(geojson)
+    }
+  });
 </script>

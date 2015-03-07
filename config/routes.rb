@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/predictor', to: 'predictor#index'
   get '/test_drive', to: 'predictor#show'
   get '/privacy', to: 'home#privacy_policy'
+  get '/events', to: 'events#index', defaults: { format: 'json' }
   resources :users
 end
