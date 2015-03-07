@@ -14,6 +14,9 @@ I set out to make a web application that would pull in event data as well as ETA
 - Uber API
 - Uber OmniAuth
 - Eventful API
+- MapBox for my maps
+- Heroku for hosting
+- Codeship for continuous integration and deployment
 - Bootstrap
 
 ## My Focus
