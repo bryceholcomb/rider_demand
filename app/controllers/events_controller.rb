@@ -8,7 +8,7 @@ class EventsController < ApplicationController
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [event.latitude, event.longitude]
+          coordinates: [event.longitude, event.latitude]
         },
         properties: {
           title: event.title,

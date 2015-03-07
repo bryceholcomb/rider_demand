@@ -25,7 +25,10 @@
     url: '/events',
     success:function(data) {
       geojson = $.parseJSON(data)
-      map.featureLayer.setGeoJSON(geojson)
+      map.featureLayer.setGeoJSON({
+        type: "FeatureCollection",
+        features: geojson
+      });
     }
   });
 </script>
