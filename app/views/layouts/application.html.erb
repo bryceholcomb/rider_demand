@@ -10,7 +10,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= bootstrap_flash %>
+    <div class="container flash-container" id="flash-container">
+      <%= bootstrap_flash %>
+    </div>
     <%= render "shared/navbar" %>
 
     <%= yield %>

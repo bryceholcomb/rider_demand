@@ -17,43 +17,6 @@ body {
   color: black;
 }
 
-.navbar {
-  padding-top: 10px;
-  background-color: white;
-  border-style: none;
-  margin-bottom: 10px;
-}
-
-.navbar-default .navbar-nav>li>a {
-  color: #777;
-}
-
-.navbar-default .navbar-brand {
-  color: #777;
-}
-
-.navbar-brand {
-  font-size: 1.8em;
-}
-
-.navbar-link {
-  font-size: 1.0em;
-}
-
-.user-info-box h3 {
-  font-size: 40px;
-}
-
-.user-info-box {
-  padding-top: 0px !important;
-  font-size: 15px;
-  text-align: center;
-  color: white;
-}
-
-.stats-info-box {
-}
-
 .info-boxes {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -66,67 +29,51 @@ body {
 }
 
 .info-box {
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
   float: left;
+}
+
+.image-row {
+  padding-top: 40px;
 }
 
 .user-image {
   height: 60px;
 }
 
-.vehicle-image {
-  max-width: 20em;
-}
-
-.profile-image {
-  max-height: 150px;
-}
-
-.profile-image-box {
-  margin-right: auto;
-  margin-left: auto;
-  width: 10em;
-}
-
-.profile-row {
-  padding-top: 20px;
-  background-color: #777;
-}
-
-.btn-uber {
-  color: #777;
-  opacity: 0.9;
-  background-color: white;
-  border-color: #777;
-}
-
-.btn-uber:hover {
-  color: white;
-  background-color: #777;
-  border-color: #777;
-}
-
-.caption-subtitle {
-  padding-bottom: 20px;
-}
-
-.image-caption {
-  background-color: rgba(100, 100, 100, .7);
-  position: absolute;
-  left: 250px;
-  top: 100px;
-  color: white;
+.flash-container {
+  opacity: 0.8;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
-  padding-bottom: 20px;
+  position: fixed;
+  padding-top: 78px;
+  width: 100%;
+  z-index: 100;
 }
 
 .predictor-option {
-  height: 50px;
-  font-size: 20px;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.predictor-event {
+  background-color: #9C9C9C;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  margin-top: 10px;
+}
+
+.predictor-options {
+  text-align: center;
 }
 
 .predictor-nav-bar h2 {
+  text-align: center;
   padding-top: 0px;
   padding-bottom: 20px;
 }
@@ -135,19 +82,47 @@ body {
   color: white;
 }
 .predictor-nav-bar {
+  position: relative;
+  z-index: 99;
+  left: 20px;
   color: white;
-  padding-left: 10px;
-  height: 600px;
   width: 25%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 80px;
   float: left;
   background-color: #777;
 }
 
+.leaflet-popup-content {
+  background-color: #777;
+}
+
+.event-popup h3 {
+  font-size: 18px;
+}
+
+.event-popup h4 {
+  font-size: 14px;
+}
+
+.event-popup {
+  color: white;
+}
+
 #map {
-  height: 600px;
+  position: fixed;
+  height: 100%;
   border: none;
-  float: right;
   top: 5px;
   bottom: 0;
-  width: 75%;
+  width: 100%;
+}
+
+.chevron-pointer {
+  font-size: 35px;
+  position: relative;
+  top: -80px;
+  right: 20px;
+  float: right;
 }
