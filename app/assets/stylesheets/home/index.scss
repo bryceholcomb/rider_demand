@@ -1,0 +1,26 @@
+.btn-uber {
+  color: #777;
+  opacity: 0.9;
+  background-color: white;
+  border-color: #777;
+}
+
+.btn-uber:hover {
+  color: white;
+  background-color: #777;
+  border-color: #777;
+}
+
+.caption-subtitle {
+  padding-bottom: 20px;
+}
+
+.image-caption {
+  background-color: rgba(100, 100, 100, .7);
+  position: absolute;
+  left: 15em;
+  top: 10em;
+  color: white;
+  text-align: center;
+  padding-bottom: 20px;
+}

@@ -1,34 +1,26 @@
 <div class="predictor-nav-bar">
   <h2>Predictor Options</h2>
-  <hr>
-  <div class="predictor-option">
-    <%= link_to "City", "" %>
+  <div class="row">
+    <%= form_tag predictor_path, method: "get" do %>
+      <div class="predictor-options">
+        <span class="predictor-option"><%= label_tag "City" %></span>
+        <%= collection_select :event, :city_id, @cities, :id, :name %>
+      </div>
+    <% end %>
   </div>
   <hr>
-  <div class="predictor-option">
-    <%= link_to "Heat Map", "" %>
-  </div>
-  <hr>
-  <div class="predictor-option">
-    <%= link_to "ETAs", "" %>
-  </div>
-  <hr>
+  <h2>Events</h2>
+  <% @events.each do |event| %>
+    <a href="">
+      <div id="event-item" class="predictor-event">
+        <h4><%= event.title %></h4>
+        <p><%= event.time_range %></p>
+        <p><%= event.venue_name %></p>
+      </div>
+      <div class="chevron-pointer">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </a>
+  <% end %>
 </div>
 <div id='map'></div>
-<script>
-  L.mapbox.accessToken = 'pk.eyJ1IjoiYmhvbGNvbWIiLCJhIjoiRkliLWdBVSJ9.wz_RjKxc0iOUgc9Vb2ff3A';
-  var map = L.mapbox.map('map', 'bholcomb.lc7kd3m2')
-  .setView([39.739, -104.990], 13);
-
-  $.ajax({
-    dataType: 'text',
-    url: '/events',
-    success:function(data) {
-      geojson = $.parseJSON(data)
-      map.featureLayer.setGeoJSON({
-        type: "FeatureCollection",
-        features: geojson
-      });
-    }
-  });
-</script>

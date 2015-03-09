@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get '/test_drive', to: 'predictor#show'
   get '/privacy', to: 'home#privacy_policy'
   get '/events', to: 'events#index', defaults: { format: 'json' }
+  get '/city', to: 'cities#data'
   resources :users
 end
