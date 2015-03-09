@@ -126,3 +126,8 @@ body {
   right: 20px;
   float: right;
 }
+
+#event_city_id {
+  color: #777;
+  background-color: white;
+}
