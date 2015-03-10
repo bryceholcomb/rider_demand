@@ -131,3 +131,7 @@ body {
   color: #777;
   background-color: white;
 }
+
+.leaflet-control-zoom {
+  background-color: #777;
+}
