@@ -39,7 +39,7 @@ var getEvents = function(map, city) {
         type: "FeatureCollection",
         features: geojson
       });
-      appendSidebarEvents(geojson);
+      appendSidebarEvents(geojson, map);
       addEventPopups(map);
     }
   });
@@ -56,16 +56,15 @@ var addEventPopups = function(map) {
   });
 };
 
-//var openPopupFromSidebar = function(map) {
-  //var currentEvent = $(this);
-  //var clickedTitle = currentEvent.find("h4").text();
-  //map.featureLayer.eachLayer(function(marker) {
-    //if (marker.feature.properties.title === clickedTitle) {
-      //var id = marker._leaflet_id
-      //map._layers[id].openPopup();
-    //}
-  //});
-//};
+var openPopupFromSidebar = function(map, clickedObject) {
+  var clickedTitle = clickedObject.find("h4").text();
+  map.featureLayer.eachLayer(function(marker) {
+    if (marker.feature.properties.title === clickedTitle) {
+      var id = marker._leaflet_id
+      map._layers[id].openPopup();
+    }
+  });
+};
 
 var zoomToNewCity = function(map) {
   var $city = $("select option:selected").text();
@@ -79,12 +78,16 @@ var zoomToNewCity = function(map) {
   getEvents(map, $city);
 };
 
-var appendSidebarEvents = function(events) {
+var appendSidebarEvents = function(events, map) {
   $(".events").children("a").remove();
   events.forEach(function(event) {
-    $(".events").append("<div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div>");
-    $(".events").children(".predictor-event:last").find("#title").text(event.properties.title);
-    $(".events").children(".predictor-event:last").find("#time").text(event.properties.time);
-    $(".events").children(".predictor-event:last").find("#venue").text(event.properties.venue);
+    $(".events").append("<a href='#', class='event-link'><div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></a>");
+    $(".events").children("a:last").find("#title").text(event.properties.title);
+    $(".events").children("a:last").find("#time").text(event.properties.time);
+    $(".events").children("a:last").find("#venue").text(event.properties.venue);
+  });
+  $(".event-link").click(function() {
+    var currentEvent = $(this);
+    openPopupFromSidebar(map, currentEvent)
   });
 };
