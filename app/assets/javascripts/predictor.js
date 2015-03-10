@@ -86,7 +86,7 @@ var zoomToNewCity = function(map) {
 var appendSidebarEvents = function(events) {
   $(".events").children("a").remove();
   events.forEach(function(event) {
-    $(".events").append("<a href=><div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div></a>");
+    $(".events").append("<a href=><div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></a>");
     $(".events").children("a:last").find("#title").text(event.properties.title);
     $(".events").children("a:last").find("#time").text(event.properties.time);
     $(".events").children("a:last").find("#venue").text(event.properties.venue);
