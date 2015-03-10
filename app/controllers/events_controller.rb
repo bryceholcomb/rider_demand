@@ -3,9 +3,17 @@ class EventsController < ApplicationController
     city = params.first.first
     @events = Event.where(venue_city: city)
     @geojson = Array.new
+    build_geojson(@events, @geojson)
 
-    @events.each do |event|
-      @geojson << {
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson }
+    end
+  end
+
+  def build_geojson(events, geojson)
+    events.each do |event|
+      geojson << {
         type: "Feature",
         geometry: {
           type: "Point",
@@ -22,11 +30,6 @@ class EventsController < ApplicationController
           :"marker-size" => "medium"
         }
       }
-    end
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @geojson }
     end
   end
 end

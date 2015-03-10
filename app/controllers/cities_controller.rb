@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
-  def data
+  def index
     @city = City.find_by(name: params.first.first)
 
     respond_to do |format|

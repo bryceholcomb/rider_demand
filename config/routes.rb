@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/predictor', to: 'predictor#index'
   get '/test_drive', to: 'predictor#show'
   get '/privacy', to: 'home#privacy_policy'
-  get '/events', to: 'events#index', defaults: { format: 'json' }
-  get '/city', to: 'cities#data'
-  resources :users
+  resources :users, except: [:new]
+  resources :cities, only: [:index]
+  resources :events, only: [:index]
 end

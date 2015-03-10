@@ -18,7 +18,7 @@ $(document).on("ready", function() {
 
 var setCity = function(map, city) {
   $.ajax({
-    url: '/city.json',
+    url: '/cities.json',
     data: city,
     success:function(city) {
       map.setView([city.latitude, city.longitude], 13)
@@ -32,14 +32,15 @@ var setCity = function(map, city) {
 var getEvents = function(map, city) {
   $.ajax({
     dataType: 'text',
-    url: '/events',
+    url: '/events.json',
     data: city,
-    success:function(data) {
-      var geojson = $.parseJSON(data);
+    success:function(events) {
+      var geojson = $.parseJSON(events);
       map.featureLayer.setGeoJSON({
         type: "FeatureCollection",
         features: geojson
       });
+      appendSidebarEvents(geojson);
     }
   });
 };
@@ -71,7 +72,7 @@ var openPopupFromSidebar = function(map) {
 var zoomToNewCity = function(map) {
   var $city = $("select option:selected").text();
   $.ajax({
-    url: '/city.json',
+    url: '/cities.json',
     data: $city,
     success:function(city) {
       map.setView([city.latitude, city.longitude], 13)
@@ -80,4 +81,14 @@ var zoomToNewCity = function(map) {
   getEvents(map, $city);
   addEventPopups(map);
   openPopupFromSidebar(map);
+};
+
+var appendSidebarEvents = function(events) {
+  $(".events").children("a").remove();
+  events.forEach(function(event) {
+    $(".events").append("<a href=><div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div></a>");
+    $(".events").children("a:last").find("#title").text(event.properties.title);
+    $(".events").children("a:last").find("#time").text(event.properties.time);
+    $(".events").children("a:last").find("#venue").text(event.properties.venue);
+  });
 };
