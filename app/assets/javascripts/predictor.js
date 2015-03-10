@@ -8,19 +8,32 @@ $(document).on("ready", function() {
   new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 
   map.featureLayer.on("ready", function(e) {
-    getEvents(map);
-    addEventPopups(map);
-    openPopupFromSidebar(map);
+    var $city = $("select option:selected").text();
+    setCity(map, $city)
+    $("#event_city_id").change(function() {
+      zoomToNewCity(map)
+    });
   });
-
-  zoomToCity(map);
-
 });
 
-var getEvents = function(map) {
+var setCity = function(map, city) {
+  $.ajax({
+    url: '/city.json',
+    data: city,
+    success:function(city) {
+      map.setView([city.latitude, city.longitude], 13)
+    }
+  });
+  getEvents(map, city);
+  addEventPopups(map);
+  openPopupFromSidebar(map);
+};
+
+var getEvents = function(map, city) {
   $.ajax({
     dataType: 'text',
     url: '/events',
+    data: city,
     success:function(data) {
       var geojson = $.parseJSON(data);
       map.featureLayer.setGeoJSON({
@@ -29,7 +42,6 @@ var getEvents = function(map) {
       });
     }
   });
-  return false;
 };
 
 var addEventPopups = function(map) {
@@ -56,15 +68,16 @@ var openPopupFromSidebar = function(map) {
   });
 };
 
-var zoomToCity = function(map) {
-  $("#event_city_id").change(function(city) {
-    var $city = $("select option:selected").text();
-    $.ajax({
-      url: '/city.json',
-      data: $city,
-      success:function(city) {
-        map.setView([city.latitude, city.longitude], 13)
-      }
-    });
+var zoomToNewCity = function(map) {
+  var $city = $("select option:selected").text();
+  $.ajax({
+    url: '/city.json',
+    data: $city,
+    success:function(city) {
+      map.setView([city.latitude, city.longitude], 13)
+    }
   });
+  getEvents(map, $city);
+  addEventPopups(map);
+  openPopupFromSidebar(map);
 };

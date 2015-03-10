@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    city = params.first.first
+    @events = Event.where(venue_city: city)
     @geojson = Array.new
 
     @events.each do |event|

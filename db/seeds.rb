@@ -35,3 +35,12 @@ Event.create(title: "Yet Another Event",
              venue_city: "Denver",
              venue_address: "1500 Blake Street",
              venue_name: "Ogden")
+Event.create(title: "San Fran Event",
+             description: "This is going to be cool",
+             start_time: Time.new(2015, 3, 6),
+             end_time: Time.new(2015, 3, 6),
+             latitude: 37.781,
+             longitude: -122.426,
+             venue_city: "San Francisco",
+             venue_address: "1500 Blake Street",
+             venue_name: "San Fran")
