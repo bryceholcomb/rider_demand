@@ -4,7 +4,6 @@ class Event
               :end_time, :venue_city, :image, :categories
 
   def initialize(data)
-    image           = data["image"] ? data["image"]["medium"]["url"] : "default.jpg"
     @url            = data["url"],
     @title          = data["title"],
     @description    = data["description"],
@@ -17,7 +16,7 @@ class Event
     @start_time     = set_time(data["start_time"]),
     @end_time       = set_time(data["stop_time"]),
     @venue_city     = data["city_name"],
-    @image          = image
+    @image          = set_image(data["image"])
     @categories     = set_categories(data["categories"]["category"])
   end
 
@@ -53,6 +52,10 @@ class Event
 
   def set_time(time)
     time ? Time.parse(time) : nil
+  end
+
+  def set_image(image)
+    image ? image["medium"]["url"] : "event_default.png"
   end
 
   # def self._build_object(data)

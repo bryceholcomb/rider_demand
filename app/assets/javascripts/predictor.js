@@ -10,6 +10,7 @@ $(document).on("ready", function() {
   map.featureLayer.on("ready", function(e) {
     var $city = $("select option:selected").text();
     setCity(map, $city);
+    addEventPopups(map);
     $("#event_city_id").change(function() {
       zoomToNewCity(map);
     });
