@@ -1,18 +1,68 @@
 require 'rails_helper'
 
-RSpec.describe Event, :type => :model do
-  let!(:event) do
-    Event.new(title: "New Event",
-              description: "It's going to be awesome",
-              start_time: Time.new(2015, 3, 6, 20, 8, 8),
-              end_time: Time.new(2015, 3, 6, 22, 8, 8))
+RSpec.describe Event, type: :model do
+  context ".where" do
+    context "with default options" do
+      VCR.use_cassette("event_spec/events_with_date_override") do
+        options = { date: "2015031000-2015031000" }
+        events = Event.where(options)
+        event = events.first
+
+        it "returns events" do
+          expect(events.count).to eq(10)
+          expect(event.class).to eq(Event)
+        end
+
+        context "#format_time" do
+          it "returns a formatted time with a valid time given" do
+            expect(event.format_time(event.start_time)).to eq("12:00 am")
+          end
+
+          it "returns 'unspecified' with not time given" do
+            expect(event.format_time(nil)).to eq("unspecified")
+          end
+        end
+
+        it "#title" do
+          expect(event.title).to eq("Early Start Denver Model Certification - Spring 2014 - by Trainer Discretion only")
+        end
+
+        it "#categories" do
+          expect(event.categories).to eq(["Education"])
+        end
+
+        it "#format_time" do
+          expect(event.format_time(event.start_time)).to eq("12:00 am")
+        end
+
+        it "#time_range" do
+          expect(event.time_range).to eq("12:00 am - 12:00 am")
+        end
+
+        it "#all_day?" do
+          expect(event.all_day?).to eq(true)
+        end
+
+        it "#latitude" do
+          expect(event.latitude.class).to eq(Float)
+        end
+
+        it "#longitude" do
+          expect(event.longitude.class).to eq(Float)
+        end
+      end
+    end
   end
 
-  it "has a formatted time" do
-    expect(event.format_time(event.start_time)).to eq(" 8:08 pm")
-  end
+  context "with multiple options" do
+    VCR.use_cassette("event_spec/events_with_overrides") do
+      options = { date: "2015031000-2015031000",
+                  location: "San Francisco" }
+      event = Event.where(options).first
 
-  it "has a time range" do
-    expect(event.time_range).to eq(" 8:08 pm - 10:08 pm")
+      it "has a title" do
+        expect(event.title).to eq("Four Paws Place www.fourpawsplace.com")
+      end
+    end
   end
 end

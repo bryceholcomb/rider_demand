@@ -9,26 +9,15 @@ $(document).on("ready", function() {
 
   map.featureLayer.on("ready", function(e) {
     var $city = $("select option:selected").text();
-    setCity(map, $city)
-    addEventPopups(map);
+    setCity(map, $city);
     $("#event_city_id").change(function() {
-      zoomToNewCity(map)
+      zoomToNewCity(map);
     });
   });
 });
 
-var setCity = function(map, city) {
-  $.ajax({
-    url: '/cities.json',
-    data: city,
-    success:function(city) {
-      map.setView([city.latitude, city.longitude], 13)
-    }
-  });
-  getEvents(map, city);
-};
 
-var getEvents = function(map, city) {
+function getEvents(map, city) {
   $.ajax({
     dataType: 'text',
     url: '/events.json',
@@ -41,22 +30,25 @@ var getEvents = function(map, city) {
       });
       appendSidebarEvents(geojson, map);
       addEventPopups(map);
+    },
+    error:function() {
+      alert("Could not load the events");
     }
   });
 };
 
-var addEventPopups = function(map) {
+function addEventPopups(map) {
   map.featureLayer.on("layeradd", function(e){
     var marker = e.layer;
     var properties = marker.feature.properties;
-    var popupContent = '<div class="event-popup">' + '<h3>' +
+    var popupContent = '<div class="event-popup">' + '<img src=' + properties.image + '>' + '<h3>' +
       properties.title + '</h3>' + '<h4>' + properties.time + '</h4>' +
       '<h4>' + properties.venue + '</h4>' + '<h4>' + properties.address + '</h4>' + '</div>';
     marker.bindPopup(popupContent, {closeButton: false, minWidth: 300});
   });
 };
 
-var openPopupFromSidebar = function(map, clickedObject) {
+function openPopupFromSidebar(map, clickedObject) {
   var clickedTitle = clickedObject.find("h4").text();
   map.featureLayer.eachLayer(function(marker) {
     if (marker.feature.properties.title === clickedTitle) {
@@ -66,19 +58,23 @@ var openPopupFromSidebar = function(map, clickedObject) {
   });
 };
 
-var zoomToNewCity = function(map) {
+function zoomToNewCity(map) {
   var $city = $("select option:selected").text();
-  $.ajax({
-    url: '/cities.json',
-    data: $city,
-    success:function(city) {
-      map.setView([city.latitude, city.longitude], 13)
-    }
-  });
-  getEvents(map, $city);
+  setCity(map, $city);
 };
 
-var appendSidebarEvents = function(events, map) {
+function setCity(map, city) {
+  $.ajax({
+    url: '/cities.json',
+    data: city,
+    success:function(city) {
+      map.setView([city.latitude, city.longitude], 13)
+      getEvents(map, city);
+    }
+  });
+};
+
+function appendSidebarEvents(events, map) {
   $(".events").children("a").remove();
   events.forEach(function(event) {
     $(".events").append("<a href='#', class='event-link'><div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></a>");

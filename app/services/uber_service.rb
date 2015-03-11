@@ -1,4 +1,4 @@
-class Uber
+class UberService
   include HTTParty
   base_uri "https://api.uber.com/v1"
 
@@ -9,8 +9,8 @@ class Uber
     self.class.headers authorization_header
   end
 
-  def eta(options = {})
-    self.class.get("/estimates/time", query: options)
+  def eta_times(options = {})
+    self.class.get("/estimates/time", query: options)["times"]
   end
 
   private
