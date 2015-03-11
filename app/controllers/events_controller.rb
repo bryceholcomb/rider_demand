@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     city = params.first.first
-    @events = Event.import_events(city)
+    @events = Event.where(city: city)
     @geojson = Array.new
     build_geojson(@events, @geojson)
 
