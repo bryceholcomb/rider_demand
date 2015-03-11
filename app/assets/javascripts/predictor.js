@@ -32,7 +32,7 @@ function getEvents(map, city) {
       addEventPopups(map);
     },
     error:function() {
-      alert("Could not load the events")
+      alert("Could not load the events");
     }
   });
 };
