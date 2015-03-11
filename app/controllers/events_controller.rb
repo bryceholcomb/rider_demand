@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   def index
-    city = params.first.first
-    @events = Event.where(city: city)
+    city = City.find_by(name: params["name"])
+    options = { location: city.lat_long }
+    @events = Event.where(options)
     @geojson = Array.new
     build_geojson(@events, @geojson)
 
