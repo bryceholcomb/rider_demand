@@ -1,4 +1,4 @@
-class Eventful
+class EventfulService
   include HTTParty
   base_uri "http://api.eventful.com/json"
 
