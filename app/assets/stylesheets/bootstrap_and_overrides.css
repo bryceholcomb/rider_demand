@@ -135,3 +135,10 @@ body {
 .leaflet-control-zoom {
   background-color: #777;
 }
+
+.spinning-wheel {
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  z-index: 100;
+}

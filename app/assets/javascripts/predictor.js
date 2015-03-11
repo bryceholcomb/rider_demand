@@ -18,11 +18,14 @@ $(document).on("ready", function() {
 
 
 function getEvents(map, city) {
+  var $wheel = $("#spinning-wheel")
+  $wheel.show();
   $.ajax({
     dataType: 'text',
     url: '/events.json',
     data: city,
     success:function(events) {
+      $wheel.hide();
       var geojson = $.parseJSON(events);
       map.featureLayer.setGeoJSON({
         type: "FeatureCollection",
