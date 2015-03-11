@@ -2,37 +2,47 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.uber.com/v1/estimates/time
+    uri: https://api.uber.com/v1/estimates/time?start_latitude=39.7392&start_longitude=-104.9903
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Authorization:
+      - Bearer TApTByyy0vSDCbiRSeloT4AAvt7tdw
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Date:
-      - Tue, 03 Mar 2015 16:11:21 GMT
+      - Tue, 10 Mar 2015 23:43:37 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '63'
+      - '523'
       Connection:
       - keep-alive
+      X-Rate-Limit-Remaining:
+      - '995'
+      Content-Language:
+      - en
+      Etag:
+      - '"8ef8c8f5a739f567e7f3ba86686324f204ca1ead"'
+      X-Rate-Limit-Reset:
+      - '1426032000'
+      X-Rate-Limit-Limit:
+      - '1000'
       X-Uber-App:
       - uberex-nonsandbox
+      Max-Age=31536000;:
+      - includeSubDomains; preload
+      1;:
+      - mode=block
     body:
       encoding: UTF-8
-      string: '{"message":"No authentication provided.","code":"unauthorized"}'
+      string: '{"times":[{"localized_display_name":"uberXL","estimate":202,"display_name":"uberXL","product_id":"1c2d6363-0b64-45ad-b749-a539b186f376"},{"localized_display_name":"uberX","estimate":202,"display_name":"uberX","product_id":"b746437e-eab6-44ca-8079-25dfd6f861ab"},{"localized_display_name":"UberBLACK","estimate":83,"display_name":"UberBLACK","product_id":"53641edd-8142-4491-8f83-3c366fecd276"},{"localized_display_name":"UberSUV","estimate":83,"display_name":"UberSUV","product_id":"a79464c3-1aec-492b-95fd-c1e96f32ec83"}]}'
     http_version:
-  recorded_at: Tue, 03 Mar 2015 16:11:22 GMT
+  recorded_at: Tue, 10 Mar 2015 23:43:36 GMT
 recorded_with: VCR 2.9.3

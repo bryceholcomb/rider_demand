@@ -6,9 +6,16 @@ class Uber
 
   def initialize(token)
     @token = token
+    self.class.headers authorization_header
   end
 
-  def eta
-    self.class.get("/estimates/time", {access_token: @token})
+  def eta(options = {})
+    self.class.get("/estimates/time", query: options)
+  end
+
+  private
+
+  def authorization_header
+    { "Authorization" => "Bearer #{token}" }
   end
 end
