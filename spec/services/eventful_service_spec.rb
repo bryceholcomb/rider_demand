@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Eventful, :type => :model do
+RSpec.describe EventfulService, :type => :model do
   describe "search endpoint" do
     context "with a key, location, and date params" do
       VCR.use_cassette("events") do
         options = {app_key: ENV["EVENTFUL_KEY"],
                    location: "Denver",
                    date: "Today"}
-        response = Eventful.new.events(options)
+        response = EventfulService.new.events(options)
 
         it "returns events" do
           expect(response.count).to eq(10)
