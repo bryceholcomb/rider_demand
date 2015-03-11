@@ -11,7 +11,7 @@ $(document).on("ready", function() {
     var $city = $("select option:selected").text();
     setCity(map, $city);
     $("#event_city_id").change(function() {
-      zoomToNewCity(map)
+      zoomToNewCity(map);
     });
   });
 });
@@ -60,7 +60,7 @@ function openPopupFromSidebar(map, clickedObject) {
 
 function zoomToNewCity(map) {
   var $city = $("select option:selected").text();
-  setCity(map, $city)
+  setCity(map, $city);
 };
 
 function setCity(map, city) {
