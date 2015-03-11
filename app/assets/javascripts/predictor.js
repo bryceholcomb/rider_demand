@@ -49,7 +49,7 @@ var addEventPopups = function(map) {
   map.featureLayer.on("layeradd", function(e){
     var marker = e.layer;
     var properties = marker.feature.properties;
-    var popupContent = '<div class="event-popup">' + '<h3>' +
+    var popupContent = '<div class="event-popup">' + '<img src=' + properties.image + '>' + '<h3>' +
       properties.title + '</h3>' + '<h4>' + properties.time + '</h4>' +
       '<h4>' + properties.venue + '</h4>' + '<h4>' + properties.address + '</h4>' + '</div>';
     marker.bindPopup(popupContent, {closeButton: false, minWidth: 300});
