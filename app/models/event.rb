@@ -13,7 +13,16 @@ class Event < ActiveRecord::Base
                 date: "Today" }
     events = Eventful.new.events(options)
     events.map do |event|
-      Event.create()
+      all_day = if event["all_day"] == 0 ? false : true
+      Event.create(url: event["url"],
+                   title: event["title"],
+                   description: event["description"],
+                   venue_name: event["venue_name"],
+                   venue_address: event["venue_address"],
+                   all_day: all_day,
+                   latitude: event["latitude"].to_f,
+                   longitude: event["longitude"].to_f,
+                   )
     end
   end
 end
