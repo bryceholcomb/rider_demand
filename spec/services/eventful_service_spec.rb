@@ -10,7 +10,7 @@ RSpec.describe EventfulService, :type => :model do
           events = EventfulService.new.events(options)
 
           it "returns events" do
-            expect(events.count).to eq(50)
+            expect(events.count).to eq(100)
           end
 
           it "returns an event with a title" do
@@ -31,7 +31,7 @@ RSpec.describe EventfulService, :type => :model do
           events = EventfulService.new.events(new_options)
 
           it "returns events" do
-            expect(events.count).to eq(50)
+            expect(events.count).to eq(100)
           end
 
           it "returns an event with a title" do

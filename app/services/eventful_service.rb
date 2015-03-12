@@ -22,7 +22,7 @@ class EventfulService
       mature: "normal",
       sort_order: "date",
       sort_direction: "ascending",
-      page_size: 50,
+      page_size: 100,
       date: "Today" }
   end
 

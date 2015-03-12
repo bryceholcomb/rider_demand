@@ -37,7 +37,7 @@ RSpec.describe Event, type: :model do
         event = events.first
 
         it "returns events" do
-          expect(events.count).to eq(50)
+          expect(events.count).to eq(100)
           expect(event.class).to eq(Event)
         end
 
