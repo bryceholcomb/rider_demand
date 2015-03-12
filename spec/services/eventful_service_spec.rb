@@ -10,7 +10,7 @@ RSpec.describe EventfulService, :type => :model do
           events = EventfulService.new.events(options)
 
           it "returns events" do
-            expect(events.count).to eq(10)
+            expect(events.count).to eq(50)
           end
 
           it "returns an event with a title" do
@@ -31,7 +31,7 @@ RSpec.describe EventfulService, :type => :model do
           events = EventfulService.new.events(new_options)
 
           it "returns events" do
-            expect(events.count).to eq(10)
+            expect(events.count).to eq(50)
           end
 
           it "returns an event with a title" do
@@ -42,6 +42,18 @@ RSpec.describe EventfulService, :type => :model do
             expect(events.first["categories"]["category"]).to eq([{"name"=>"Pets", "id"=>"animals"}, {"name"=>"Sales &amp; Retail", "id"=>"sales"}])
           end
         end
+      end
+    end
+  end
+  context "categories endpoint" do
+    VCR.use_cassette("eventful_spec/categories") do
+      categories = EventfulService.new.categories
+      it "returns categories" do
+        expect(categories.count).to eq(29)
+      end
+
+      it "a category has a name" do
+        expect(categories.first["name"]).to eq("Concerts & Tour Dates")
       end
     end
   end

@@ -28,6 +28,16 @@ class Event
     service.events(options).map { |event| Event.new(event) }
   end
 
+  def self.categories
+    service.categories
+  end
+
+  def self.category_names_and_ids
+    categories.map do |category|
+      [category["name"], category["id"]]
+    end.unshift(["All", ""])
+  end
+
   def format_time(time)
     time ? time.strftime("%l:%M %P") : "unspecified"
   end
@@ -57,8 +67,4 @@ class Event
   def set_image(image)
     image ? image["medium"]["url"] : "event_default.png"
   end
-
-  # def self._build_object(data)
-  #   OpenStruct.new(data)
-  # end
 end

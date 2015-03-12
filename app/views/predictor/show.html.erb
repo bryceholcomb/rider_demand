@@ -5,9 +5,11 @@
   <h2>Predictor Options</h2>
   <div class="row">
     <%= form_tag predictor_path, method: "get" do %>
-      <div class="predictor-options">
+      <div class="row predictor-options">
         <span class="predictor-option"><%= label_tag "City" %></span>
-        <%= collection_select :event, :city_id, @cities, :id, :name %>
+        <%= collection_select :event, :city_id, @cities, :id, :name %><br>
+        <span class="predictor-option"><%= label_tag "Categories" %></span>
+        <%= select :event, :category_id, @categories %>
       </div>
     <% end %>
   </div>
