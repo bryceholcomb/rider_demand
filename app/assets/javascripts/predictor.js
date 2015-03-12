@@ -85,7 +85,7 @@ function setCity(map, city) {
 function appendSidebarEvents(events, map) {
   $(".events").children("a").remove();
   events.forEach(function(event) {
-    $(".events").append("<a href='#', class='event-link'><div id='event-item' class='predictor-event'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></a>");
+    $(".events").append("<a href='#', class='event-link'><div id='event-item' class='predictor-event'><div class='event-text'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></div></a>");
     $(".events").children("a:last").find("#title").text(event.properties.title);
     $(".events").children("a:last").find("#time").text(event.properties.time);
     $(".events").children("a:last").find("#venue").text(event.properties.venue);

@@ -60,15 +60,6 @@ body {
   text-align: left;
 }
 
-.predictor-event {
-  background-color: #9C9C9C;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 2px;
-  padding-top: 2px;
-  margin-top: 10px;
-}
-
 .predictor-options {
   padding-left: 20px;
   text-align: left;
@@ -103,6 +94,7 @@ body {
 
 .event-popup h3 {
   font-size: 18px;
+  padding-top: 10px;
 }
 
 .event-popup h4 {
@@ -122,12 +114,26 @@ body {
   width: 100%;
 }
 
+.event-text {
+  width: 75%;
+}
+
 .chevron-pointer {
   font-size: 35px;
-  position: relative;
+  width: 15%;
+  position: absolute;
   top: -80px;
   right: 20px;
   float: right;
+}
+
+.predictor-event {
+  background-color: #9C9C9C;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  margin-top: 10px;
 }
 
 #event_city_id {
