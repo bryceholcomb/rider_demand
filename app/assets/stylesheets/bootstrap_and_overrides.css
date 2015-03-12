@@ -54,9 +54,10 @@ body {
 }
 
 .predictor-option {
-  font-size: 12px;
+  font-size: 1em;
   padding-left: 10px;
   padding-right: 10px;
+  text-align: left;
 }
 
 .predictor-event {
@@ -69,7 +70,9 @@ body {
 }
 
 .predictor-options {
-  text-align: center;
+  padding-left: 20px;
+  text-align: left;
+  width: 100%;
 }
 
 .predictor-nav-bar h2 {
@@ -130,6 +133,17 @@ body {
 #event_city_id {
   color: #777;
   background-color: white;
+  width: 14em;
+  float: right;
+  padding-right: 10px;
+}
+
+#event_category_id {
+  color: #777;
+  background-color: white;
+  width: 14em;
+  float: right;
+  padding-right: 10px;
 }
 
 .leaflet-control-zoom {

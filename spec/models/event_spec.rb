@@ -1,6 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+  context ".categories" do
+    VCR.use_cassette("event_spec/categories") do
+      categories = Event.categories
+
+      it "returns categories" do
+        expect(categories.count).to eq(29)
+      end
+
+      it "a category has a name" do
+        expect(categories.first["name"]).to eq("Concerts & Tour Dates")
+      end
+    end
+  end
+
+  context ".category_names_and_ids" do
+    VCR.use_cassette("event_spec/category_names") do
+      names = Event.category_names_and_ids
+
+      it "returns 'All' first" do
+        expect(names.first).to eq(["All", ""])
+      end
+
+      it "returns a name and id" do
+        expect(names[1]).to eq(["Concerts & Tour Dates", "music"])
+      end
+    end
+  end
+
   context ".where" do
     context "with default options" do
       VCR.use_cassette("event_spec/events_with_date_override") do
@@ -9,7 +37,7 @@ RSpec.describe Event, type: :model do
         event = events.first
 
         it "returns events" do
-          expect(events.count).to eq(10)
+          expect(events.count).to eq(50)
           expect(event.class).to eq(Event)
         end
 
