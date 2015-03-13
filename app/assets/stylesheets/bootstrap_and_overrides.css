@@ -115,16 +115,7 @@ body {
 }
 
 .event-text {
-  width: 75%;
-}
-
-.chevron-pointer {
-  font-size: 35px;
-  width: 15%;
-  position: absolute;
-  top: -80px;
-  right: 20px;
-  float: right;
+  width: 100%;
 }
 
 .predictor-event {
