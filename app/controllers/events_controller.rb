@@ -27,6 +27,7 @@ class EventsController < ApplicationController
           venue: event.venue_name,
           address: event.venue_address,
           time: event.time_range,
+          date: event.date_range,
           image: event.image,
           :"marker-color" => "#00607d",
           :"marker-symbol" => "circle",

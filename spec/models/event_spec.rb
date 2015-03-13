@@ -52,11 +52,11 @@ RSpec.describe Event, type: :model do
         end
 
         it "#title" do
-          expect(event.title).to eq("Early Start Denver Model Certification - Spring 2014 - by Trainer Discretion only")
+          expect(event.title).to eq("Summit Fit Dojo Group Fitness & Kickboxing")
         end
 
         it "#categories" do
-          expect(event.categories).to eq(["Education"])
+          expect(event.categories).to eq(["Health &amp; Wellness", "Outdoors &amp; Recreation"])
         end
 
         it "#format_time" do
@@ -64,7 +64,7 @@ RSpec.describe Event, type: :model do
         end
 
         it "#time_range" do
-          expect(event.time_range).to eq("12:00 am - 12:00 am")
+          expect(event.time_range).to eq("12:00 am -  1:00 am")
         end
 
         it "#all_day?" do
@@ -78,6 +78,18 @@ RSpec.describe Event, type: :model do
         it "#longitude" do
           expect(event.longitude.class).to eq(Float)
         end
+
+        it "#start_date" do
+          expect(event.start_date).to eq("3/10/15")
+        end
+
+        it "#end_date" do
+          expect(event.end_date).to eq("10/20/15")
+        end
+
+        it "#date_range" do
+          expect(event.date_range).to eq("3/10/15")
+        end
       end
     end
   end
@@ -89,7 +101,7 @@ RSpec.describe Event, type: :model do
       event = Event.where(options).first
 
       it "has a title" do
-        expect(event.title).to eq("Four Paws Place www.fourpawsplace.com")
+        expect(event.title).to eq("Newsies - The Musical")
       end
     end
   end

@@ -14,11 +14,11 @@ RSpec.describe EventfulService, :type => :model do
           end
 
           it "returns an event with a title" do
-            expect(events.first["title"]).to eq("Early Start Denver Model Certification - Spring 2014 - by Trainer Discretion only")
+            expect(events.first["title"]).to eq("Summit Fit Dojo Group Fitness & Kickboxing")
           end
 
           it "returns an event with categories" do
-            expect(events.first["categories"]["category"]).to eq([{"name"=>"Education", "id"=>"learning_education"}])
+            expect(events.first["categories"]["category"]).to eq([{"name"=>"Health &amp; Wellness", "id"=>"support"}, {"name"=>"Outdoors &amp; Recreation", "id"=>"outdoors_recreation"}])
           end
         end
       end
@@ -35,11 +35,11 @@ RSpec.describe EventfulService, :type => :model do
           end
 
           it "returns an event with a title" do
-            expect(events.first["title"]).to eq("Four Paws Place www.fourpawsplace.com")
+            expect(events.first["title"]).to eq("Newsies - The Musical")
           end
 
           it "returns an event with categories" do
-            expect(events.first["categories"]["category"]).to eq([{"name"=>"Pets", "id"=>"animals"}, {"name"=>"Sales &amp; Retail", "id"=>"sales"}])
+            expect(events.first["categories"]["category"]).to eq([{"name"=>"Film", "id"=>"movies_film"}, {"name"=>"Performing Arts", "id"=>"performing_arts"}])
           end
         end
       end

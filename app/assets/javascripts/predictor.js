@@ -50,7 +50,7 @@ function addEventPopups(map) {
     var marker = e.layer;
     var properties = marker.feature.properties;
     var popupContent = '<div class="event-popup">' + '<img src=' + properties.image + '>' + '<h3>' +
-      properties.title + '</h3>' + '<h4>' + properties.time + '</h4>' +
+      properties.title + '</h3>' + '<h4>' + properties.time + '</h4>' + '<h4>' + properties.date + '</h4>' +
       '<h4>' + properties.venue + '</h4>' + '<h4>' + properties.address + '</h4>' + '</div>';
     marker.bindPopup(popupContent, {closeButton: false, minWidth: 300});
   });
@@ -85,10 +85,11 @@ function setCity(map, city) {
 function appendSidebarEvents(events, map) {
   $(".events").children("a").remove();
   events.forEach(function(event) {
-    $(".events").append("<a href='#', class='event-link'><div id='event-item' class='predictor-event'><div class='event-text'><h4 id='title'></h4><p id='time'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></div></a>");
+    $(".events").append("<a href='#', class='event-link'><div id='event-item' class='predictor-event'><div class='event-text'><h4 id='title'></h4><p id='time'></p><p id='date'></p><p id='venue'></p></div><div class='chevron-pointer'><i class='fa fa-chevron-right'></i></div></div></a>");
     $(".events").children("a:last").find("#title").text(event.properties.title);
     $(".events").children("a:last").find("#time").text(event.properties.time);
     $(".events").children("a:last").find("#venue").text(event.properties.venue);
+    $(".events").children("a:last").find("#date").text(event.properties.date);
   });
   $(".event-link").click(function() {
     var currentEvent = $(this);

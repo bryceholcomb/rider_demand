@@ -1,7 +1,8 @@
 class Event
   attr_reader :url, :title, :description, :venue_name, :venue_address,
               :all_day, :latitude, :longitude, :geocode_type, :start_time,
-              :end_time, :venue_city, :image, :categories
+              :end_time, :venue_city, :image, :categories, :start_date,
+              :end_date
 
   def initialize(data)
     @url            = data["url"],
@@ -18,6 +19,8 @@ class Event
     @venue_city     = data["city_name"],
     @image          = set_image(data["image"])
     @categories     = set_categories(data["categories"]["category"])
+    @start_date     = set_date(data["start_time"])
+    @end_date       = set_date(data["stop_time"])
   end
 
   def self.service
@@ -46,6 +49,10 @@ class Event
     "#{format_time(start_time)} - #{format_time(end_time)}"
   end
 
+  def date_range
+    all_day? ? "#{start_date}" : "#{start_date} - #{end_date}"
+  end
+
   def all_day?
     all_day
   end
@@ -57,7 +64,7 @@ class Event
   end
 
   def set_all_day_boolean(number)
-    number == 0 ? false : true
+    number == "0" ? false : true
   end
 
   def set_time(time)
@@ -66,5 +73,9 @@ class Event
 
   def set_image(image)
     image ? image["medium"]["url"] : "event_default.png"
+  end
+
+  def set_date(date_time)
+    date_time ? Date.parse(date_time).strftime("%-m/%-d/%y") : "unspecified"
   end
 end
