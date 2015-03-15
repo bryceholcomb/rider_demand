@@ -98,21 +98,29 @@ function appendSidebarEvents(events, map) {
   });
 };
 
+var geojson;
+
 function addNeighborhoods(map, city) {
   $.ajax({
     url: '/neighborhoods.json',
     data: city,
     success:function(neighborhoods) {
-      L.geoJson(neighborhoods, {style: style}).addTo(map);
+      geojson = L.geoJson(neighborhoods, {
+        style: style,
+        onEachFeature: onEachFeature
+      }).addTo(map);
     }
   });
 };
 
 function getColor(eta) {
-  return eta > 2000 ? '#800026' :
-    eta > 1000  ? '#BD0026' :
-    eta > 500  ? '#E31A1C' :
-    '#FFEDA0';
+  return eta > 3000 ? '#b10026' :
+    eta > 2500  ? '#e31a1c' :
+    eta > 2000  ? '#fc4e2a' :
+    eta > 1500  ? '#fd8d3c' :
+    eta > 1000  ? '#feb24c' :
+    eta > 500   ? '#fed976' :
+    '#ffffb2';
 };
 
 function style(feature) {
@@ -124,4 +132,35 @@ function style(feature) {
     dashArray: '3',
     fillOpacity: 0.7
   }
+};
+
+function highlightFeature(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+    weight: 5,
+    color: '#666',
+    dashArray: '',
+    fillOpacity: 0.7
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera) {
+    layer.bringToFront();
+  }
+};
+
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+};
+
+function zoomToFeature(e) {
+  map.fitBounds(e.target.getBounds());
+};
+
+function onEachFeature(feature, layer) {
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+    click: zoomToFeature
+  });
 };

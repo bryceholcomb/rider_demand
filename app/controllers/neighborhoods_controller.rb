@@ -30,6 +30,10 @@ class NeighborhoodsController < ApplicationController
 
   def fetch_etas(center_point)
     options = { start_latitude: center_point.last, start_longitude: center_point.first }
-    UberService.new(current_user.token).eta_times(options)
+    if current_user
+      UberService.new(current_user.token).eta_times(options)
+    else
+      UberService.new(ENV["UBER_DEFAULT_BEARER_TOKEN"]).eta_times(options)
+    end
   end
 end
