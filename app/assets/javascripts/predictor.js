@@ -17,6 +17,7 @@ $(document).on("ready", function() {
     $("#event_category_id").change(function() {
       getEvents(map);
     });
+    info.addTo(map);
   });
 });
 
@@ -144,6 +145,8 @@ function highlightFeature(e) {
     fillOpacity: 0.7
   });
 
+  info.update(layer.feature.properties);
+
   if (!L.Browser.ie && !L.Browser.opera) {
     layer.bringToFront();
   }
@@ -151,6 +154,7 @@ function highlightFeature(e) {
 
 function resetHighlight(e) {
   geojson.resetStyle(e.target);
+  info.update();
 };
 
 function zoomToFeature(e) {
@@ -164,3 +168,17 @@ function onEachFeature(feature, layer) {
     click: zoomToFeature
   });
 };
+
+var info = L.control();
+
+info.onAdd = function (map) {
+  this._div = L.DomUtil.create('div', 'info');
+  this.update();
+  return this._div;
+};
+
+info.update = function (props) {
+  this._div.innerHTML = '<h4>Current Uber Eta Times</h4>' + (props ? '<b>' + props.name + '</b><br />' + (props.eta / 100) + ' minutes'
+                                                             : 'Hover over a neighborhood');
+};
+

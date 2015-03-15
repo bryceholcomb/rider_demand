@@ -1,10 +1,10 @@
 /*
-  =require twitter-bootstrap-static/bootstrap
+=require twitter-bootstrap-static/bootstrap
 
-  Use Font Awesome icons (default)
-  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
-  =require twitter-bootstrap-static/fontawesome
-*/
+Use Font Awesome icons (default)
+To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+=require twitter-bootstrap-static/fontawesome
+ */
 html, body {
   height: 100%;
   margin: 0;
@@ -15,6 +15,27 @@ body {
   background-color: white;
   font-family: 'Lato', sans-serif;
   color: black;
+}
+
+.info {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background: white;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  color: #777;
+}
+
+.info h4 {
+  margin: 0 0 5px;
+}
+
+.leaflet-top .leaflet-control {
+  margin-top: 80px;
+  margin-right: 20px;
 }
 
 .info-boxes {
