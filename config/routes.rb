@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
   resources :cities, only: [:index]
   resources :events, only: [:index]
+  resources :neighborhoods, only: [:index]
 end

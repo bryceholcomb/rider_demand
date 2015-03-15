@@ -99,9 +99,29 @@ function appendSidebarEvents(events, map) {
 };
 
 function addNeighborhoods(map, city) {
-  if (city.name === "Denver") {
-    L.geoJson(Denver).addTo(map);
-  } else if (city.name === "San Francisco") {
-    L.geoJson(SanFrancisco).addTo(map);
+  $.ajax({
+    url: '/neighborhoods.json',
+    data: city,
+    success:function(neighborhoods) {
+      L.geoJson(neighborhoods, {style: style}).addTo(map);
+    }
+  });
+};
+
+function getColor(eta) {
+  return eta > 2000 ? '#800026' :
+    eta > 1000  ? '#BD0026' :
+    eta > 500  ? '#E31A1C' :
+    '#FFEDA0';
+};
+
+function style(feature) {
+  return {
+    fillColor: getColor(feature.properties.eta),
+    weight: 2,
+    opacity: 1,
+    color: 'white',
+    dashArray: '3',
+    fillOpacity: 0.7
   }
 };
