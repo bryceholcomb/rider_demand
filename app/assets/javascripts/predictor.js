@@ -18,6 +18,7 @@ $(document).on("ready", function() {
       getEvents(map);
     });
     info.addTo(map);
+    legend.addTo(map);
   });
 });
 
@@ -179,6 +180,22 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
   this._div.innerHTML = '<h4>Current Uber Eta Times</h4>' + (props ? '<b>' + props.name + '</b><br />' + (props.eta / 100) + ' minutes'
-                                                             : 'Hover over a neighborhood');
+    : 'Hover over a neighborhood');
 };
 
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    grades = [0, 500, 1000, 1500, 2000, 2500, 3000],
+    labels = [];
+
+  for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+      (grades[i] / 100) + ((grades[i + 1] / 100) ? '&ndash;' + (grades[i + 1] / 100) + '<br>' : '+');
+  }
+
+  return div;
+};
