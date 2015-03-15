@@ -78,6 +78,7 @@ function setCity(map, city) {
     success:function(city) {
       map.setView([city.latitude, city.longitude], 13)
       getEvents(map);
+      addNeighborhoods(map, city);
     }
   });
 };
@@ -95,4 +96,12 @@ function appendSidebarEvents(events, map) {
     var currentEvent = $(this);
     openPopupFromSidebar(map, currentEvent)
   });
+};
+
+function addNeighborhoods(map, city) {
+  if (city.name === "Denver") {
+    L.geoJson(Denver).addTo(map);
+  } else if (city.name === "San Francisco") {
+    L.geoJson(SanFrancisco).addTo(map);
+  }
 };
