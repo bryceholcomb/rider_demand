@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316194048) do
+ActiveRecord::Schema.define(version: 20150316222912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150316194048) do
     t.float    "coordinates",               array: true
     t.float    "center_point",              array: true
     t.integer  "city_id"
+    t.text     "geometry"
   end
 
   create_table "time_estimates", force: :cascade do |t|
