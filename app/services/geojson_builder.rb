@@ -1,5 +1,5 @@
 class GeojsonBuilder
-  def build(event)
+  def self.build(event)
     {
       type: "Feature",
       geometry: {

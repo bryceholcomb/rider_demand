@@ -1,6 +1,7 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.where(city: params["name"])
+    city = City.find_by(name: params["name"])
+    @neighborhoods = Neighborhood.where(city: city.id)
     @geojson = Array.new
     build_geojson(@neighborhoods, @geojson)
 
@@ -15,14 +16,14 @@ class NeighborhoodsController < ApplicationController
       center_point = neighborhood.geometry["coordinates"][0][0][0]
 
       geojson << {
-        type: neighborhood["type"],
+        type: "Feature",
         geometry: {
-          type: neighborhood.geometry["type"],
-          coordinates: neighborhood.geometry["coordinates"]
+          type: "MultiPolygon",
+          coordinates: neighborhood.coordinates
         },
         properties: {
-          name: neighborhood.properties["name"],
-          eta: fetch_etas(center_point).first["estimate"]
+          name: neighborhood.name,
+          eta: neighborhood.time_estimates.first.time
         }
       }
     end
