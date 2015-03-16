@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311191020) do
+ActiveRecord::Schema.define(version: 20150316194048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(version: 20150311191020) do
     t.float    "latitude"
     t.float    "longitude"
   end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "coordinates",               array: true
+    t.float    "center_point",              array: true
+    t.integer  "city_id"
+  end
+
+  create_table "time_estimates", force: :cascade do |t|
+    t.integer  "time"
+    t.integer  "neighborhood_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "product_type"
+  end
+
+  add_index "time_estimates", ["neighborhood_id"], name: "index_time_estimates_on_neighborhood_id", using: :btree
 
   create_table "user_cities", force: :cascade do |t|
     t.integer "user_id"
@@ -52,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150311191020) do
     t.integer  "avg_weekly_rides"
   end
 
+  add_foreign_key "time_estimates", "neighborhoods"
   add_foreign_key "user_cities", "cities"
   add_foreign_key "user_cities", "users"
 end
