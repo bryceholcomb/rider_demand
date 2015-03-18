@@ -25,6 +25,7 @@ gem 'webmock', group: :test
 gem 'simplecov', require: false, group: :test
 gem "paperclip", "~> 4.2"
 gem 'd3-rails'
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 group :development, :test, :staging do
   gem 'pry'
