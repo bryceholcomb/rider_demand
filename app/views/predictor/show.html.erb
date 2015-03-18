@@ -6,15 +6,20 @@
   <div class="row">
     <%= form_tag predictor_path, method: "get" do %>
       <div class="row predictor-options">
-        <span class="predictor-option"><%= label_tag "City" %></span>
-        <%= collection_select :event, :city_id, @cities, :id, :name %><br>
-        <span class="predictor-option"><%= label_tag "Categories" %></span>
-        <%= select :event, :category_id, @categories %>
+        <span class="predictor-option"><%= label_tag "City" %>
+        <%= collection_select :event, :city_id, @cities, :id, :name %></span><br>
+        <span class="predictor-option"><%= label_tag "Categories" %>
+        <%= select :event, :category_id, @categories %></span><br>
+        <span class="predictor-option"><%= label_tag "Uber Product" %>
+        <%= select :event, :product_type, @uber_products %></span><br>
+        <span class="predictor-option"><%= label_tag "Happening" %>
+        <%= select_date Date.today, prefix: :start_date %></span><br>
       </div>
     <% end %>
   </div>
   <hr>
   <h2>Events</h2>
+  <h6>(sorted by popularity)</h6>
   <div class="events">
   </div>
 </div>

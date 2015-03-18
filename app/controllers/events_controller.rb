@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
   def build_geojson(events, geojson)
     events.each do |event|
-      geojson << GeojsonBuilder.build(event)
+      geojson << GeojsonBuilder.build_event(event)
     end
   end
 end

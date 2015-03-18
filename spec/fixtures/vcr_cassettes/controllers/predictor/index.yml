@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.eventful.com/json/categories/list?app_key=jzrQDTwqBVDwSn5j
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/javascript; charset=utf-8
+      Content-Length:
+      - '1960'
+      Date:
+      - Wed, 18 Mar 2015 18:53:24 GMT
+      Server:
+      - lighttpd/1.4.35
+    body:
+      encoding: UTF-8
+      string: |
+        {"category":[{"name":"Concerts &amp; Tour Dates","event_count":null,"id":"music"},{"name":"Conferences &amp; Tradeshows","event_count":null,"id":"conference"},{"name":"Comedy","event_count":null,"id":"comedy"},{"name":"Education","event_count":null,"id":"learning_education"},{"name":"Kids &amp; Family","event_count":null,"id":"family_fun_kids"},{"name":"Festivals","event_count":null,"id":"festivals_parades"},{"name":"Film","event_count":null,"id":"movies_film"},{"name":"Food &amp; Wine","event_count":null,"id":"food"},{"name":"Fundraising &amp; Charity","event_count":null,"id":"fundraisers"},{"name":"Art Galleries &amp; Exhibits","event_count":null,"id":"art"},{"name":"Health &amp; Wellness","event_count":null,"id":"support"},{"name":"Holiday","event_count":null,"id":"holiday"},{"name":"Literary &amp; Books","event_count":null,"id":"books"},{"name":"Museums &amp; Attractions","event_count":null,"id":"attractions"},{"name":"Neighborhood","event_count":null,"id":"community"},{"name":"Business &amp; Networking","event_count":null,"id":"business"},{"name":"Nightlife &amp; Singles","event_count":null,"id":"singles_social"},{"name":"University &amp; Alumni","event_count":null,"id":"schools_alumni"},{"name":"Organizations &amp; Meetups","event_count":null,"id":"clubs_associations"},{"name":"Outdoors &amp; Recreation","event_count":null,"id":"outdoors_recreation"},{"name":"Performing Arts","event_count":null,"id":"performing_arts"},{"name":"Pets","event_count":null,"id":"animals"},{"name":"Politics &amp; Activism","event_count":null,"id":"politics_activism"},{"name":"Sales &amp; Retail","event_count":null,"id":"sales"},{"name":"Science","event_count":null,"id":"science"},{"name":"Religion &amp; Spirituality","event_count":null,"id":"religion_spirituality"},{"name":"Sports","event_count":null,"id":"sports"},{"name":"Technology","event_count":null,"id":"technology"},{"name":"Other &amp; Miscellaneous","event_count":null,"id":"other"}]}
+    http_version: 
+  recorded_at: Wed, 18 Mar 2015 18:53:24 GMT
+recorded_with: VCR 2.9.3

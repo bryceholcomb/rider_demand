@@ -3,18 +3,6 @@ require "rails_helper"
 describe "an authenticated user" do
   include Capybara::DSL
 
-  xit "can add more info after authentication" do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    visit root_path
-    click_link_or_button "Login with Uber"
-    fill_in "email", with: "brycecholcomb@gmail.com"
-    fill_in "password", with: "password"
-    expect(current_path).to eq edit_user_path
-    click_link_or_button "Submit"
-    expect(current_path).to eq predictor_path
-  end
-
   it "can edit their information" do
     user = create(:user, created_at: Date.new(2015, 3, 1))
     create(:city, name: "San Francisco")
@@ -46,21 +34,15 @@ describe "an authenticated user" do
     expect(page).to have_content "03/01/2015"
   end
 
-  xit "can log out" do
+  it "can log out" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit root_path
     click_link_or_button "Logout"
     expect(page).to have_content "You have successfully logged out"
-    expect(page).to have_content "Login with Uber"
   end
 
-  xit "is redirected to add more info if this is first signup" do
-    user = create(:user, provider: "uber")
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  end
-
-  xit "can see the predictor map page if they are a returning user" do
+  it "can see the predictor map page if they are a returning user" do
     create(:user, provider: "uber")
     user = User.find_by(provider: "uber")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

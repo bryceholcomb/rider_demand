@@ -1,5 +1,5 @@
 class GeojsonBuilder
-  def self.build(event)
+  def self.build_event(event)
     {
       type: "Feature",
       geometry: {
@@ -17,6 +17,20 @@ class GeojsonBuilder
         :"marker-color" => "#00607d",
         :"marker-symbol" => "circle",
         :"marker-size" => "medium"
+      }
+    }
+  end
+
+  def self.build_neighborhood(neighborhood, product)
+    {
+      type: "Feature",
+      geometry: {
+        type: "MultiPolygon",
+        coordinates: neighborhood.coordinates
+      },
+      properties: {
+        name: neighborhood.name,
+        eta: neighborhood.time_estimates.where(product_type: product).first.time
       }
     }
   end

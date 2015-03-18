@@ -23,10 +23,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
   background: white;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
   border-radius: 5px;
   color: #777;
+  font-size: 1.2em;
 }
 
 .info h4 {
@@ -86,10 +87,13 @@ body {
   z-index: 100;
 }
 
+.predictor-option label {
+  padding-right: 10px
+}
+
 .predictor-option {
   font-size: 1em;
   padding-left: 10px;
-  padding-right: 10px;
   text-align: left;
 }
 
@@ -102,7 +106,12 @@ body {
 .predictor-nav-bar h2 {
   text-align: center;
   padding-top: 0px;
-  padding-bottom: 20px;
+}
+
+.predictor-nav-bar h6 {
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 10px;
 }
 
 .predictor-nav-bar a {
@@ -158,12 +167,15 @@ body {
   padding-bottom: 2px;
   padding-top: 2px;
   margin-top: 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #00607d;
 }
 
 #event_city_id {
   color: #777;
   background-color: white;
-  width: 14em;
+  width: 13em;
   float: right;
   padding-right: 10px;
 }
@@ -171,13 +183,47 @@ body {
 #event_category_id {
   color: #777;
   background-color: white;
-  width: 14em;
+  width: 13em;
   float: right;
   padding-right: 10px;
 }
 
+#event_product_type {
+  color: #777;
+  background-color: white;
+  width: 13em;
+  float: right;
+  padding-right: 10px;
+}
+
+#start_date_day {
+  color: #777;
+  background-color: white;
+  float: right;
+  font-size: 12px;
+  max-width: 4em;
+  margin-top: 1px;
+}
+
+#start_date_month {
+  color: #777;
+  background-color: white;
+  font-size: 12px;
+  max-width: 7.3em;
+}
+
+#start_date_year {
+  color: #777;
+  background-color: white;
+  font-size: 12px;
+  max-width: 6em;
+}
+
 .leaflet-control-zoom {
-  background-color: #777;
+  background-color: white;
+}
+
+.leaflet-control {
 }
 
 .spinning-wheel {

@@ -17,6 +17,9 @@ $(document).on("ready", function() {
     $("#event_category_id").change(function() {
       getEvents(map);
     });
+    $("#event_product_type").change(function() {
+      addNeighborhoods(map, $city);
+    });
     info.addTo(map);
     legend.addTo(map);
   });
@@ -80,7 +83,7 @@ function setCity(map, city) {
     success:function(city) {
       map.setView([city.latitude, city.longitude], 13)
       getEvents(map);
-      addNeighborhoods(map, city);
+      addNeighborhoods(map, city.name);
     }
   });
 };
@@ -103,10 +106,12 @@ function appendSidebarEvents(events, map) {
 var geojson;
 
 function addNeighborhoods(map, city) {
+  var $product = $("select#event_product_type").children(":selected").text();
   $.ajax({
     url: '/neighborhoods.json',
-    data: city,
+    data: {city: city, product: $product},
     success:function(neighborhoods) {
+      map.removeLayer(L.geoJson);
       geojson = L.geoJson(neighborhoods, {
         style: style,
         onEachFeature: onEachFeature
@@ -179,7 +184,7 @@ info.onAdd = function (map) {
 };
 
 info.update = function (props) {
-  this._div.innerHTML = '<h4>Current Uber Eta Times</h4>' + (props ? '<b>' + props.name + '</b><br />' + (props.eta / 100) + ' minutes'
+  this._div.innerHTML = '<h4>Current Uber ETA Time</h4>' + (props ? '<b>' + props.name + '</b><br />' + (props.eta / 100) + ' minutes'
     : 'Hover over a neighborhood');
 };
 
@@ -188,13 +193,13 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (map) {
 
   var div = L.DomUtil.create('div', 'info legend'),
-    grades = [0, 500, 1000, 1500, 2000, 2500, 3000],
-    labels = [];
+  grades = [0, 500, 1000, 1500, 2000, 2500, 3000],
+  labels = [];
 
   for (var i = 0; i < grades.length; i++) {
     div.innerHTML +=
       '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-      (grades[i] / 100) + ((grades[i + 1] / 100) ? '&ndash;' + (grades[i + 1] / 100) + '<br>' : '+');
+      (grades[i] / 100) + ((grades[i + 1] / 100) ? ' &ndash; ' + (grades[i + 1] / 100) + '<br>' : '+');
   }
 
   return div;
