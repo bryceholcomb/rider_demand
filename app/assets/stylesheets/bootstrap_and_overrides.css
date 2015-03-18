@@ -173,7 +173,7 @@ body {
 }
 
 #event_city_id {
-  color: #777;
+  color: #00607d;
   background-color: white;
   width: 13em;
   float: right;
@@ -181,7 +181,7 @@ body {
 }
 
 #event_category_id {
-  color: #777;
+  color: #00607d;
   background-color: white;
   width: 13em;
   float: right;
@@ -189,7 +189,7 @@ body {
 }
 
 #event_product_type {
-  color: #777;
+  color: #00607d;
   background-color: white;
   width: 13em;
   float: right;
@@ -197,7 +197,7 @@ body {
 }
 
 #start_date_day {
-  color: #777;
+  color: #00607d;
   background-color: white;
   float: right;
   font-size: 12px;
@@ -206,14 +206,14 @@ body {
 }
 
 #start_date_month {
-  color: #777;
+  color: #00607d;
   background-color: white;
   font-size: 12px;
   max-width: 7.3em;
 }
 
 #start_date_year {
-  color: #777;
+  color: #00607d;
   background-color: white;
   font-size: 12px;
   max-width: 6em;
@@ -221,9 +221,6 @@ body {
 
 .leaflet-control-zoom {
   background-color: white;
-}
-
-.leaflet-control {
 }
 
 .spinning-wheel {

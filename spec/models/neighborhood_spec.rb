@@ -27,6 +27,11 @@ RSpec.describe Neighborhood, :type => :model do
     expect(neighborhood.city.name).to eq("Denver")
   end
 
+  it ".by_product_type" do
+    neighborhood.time_estimates.create(product_type: "uberX")
+    expect(Neighborhood.by_product_type("uberX").count).to eq(1)
+  end
+
   context "#time_estimates" do
     it "exist" do
       expect(neighborhood.time_estimates).to eq([])
@@ -41,9 +46,5 @@ RSpec.describe Neighborhood, :type => :model do
       expect(neighborhood.time_estimates.count).to eq(2)
       expect(neighborhood.time_estimates.first.product_type).to eq("uberXL")
     end
-  end
-
-  it ".build_geojson" do
-
   end
 end

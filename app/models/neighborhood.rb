@@ -2,6 +2,8 @@ class Neighborhood < ActiveRecord::Base
   has_many :time_estimates
   belongs_to :city
 
+  scope :by_product_type, ->(product) { joins(:time_estimates).where('time_estimates.product_type' => product) }
+
   store :geometry, accessors: [:coordinates], coder: JSON
 
   def self.build_object(data)
