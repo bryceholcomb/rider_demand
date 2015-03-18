@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-  background-color: white;
+  background-color: #EEEEEE;
   font-family: 'Lato', sans-serif;
   color: black;
 }
@@ -64,7 +64,7 @@ body {
 
 .info-box {
   padding-top: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   float: left;
 }
 
@@ -228,4 +228,57 @@ body {
   left: 55%;
   top: 50%;
   z-index: 100;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 8px;
+}
+
+.source-code i {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.source-code {
+  font-size: 0.9em;
+}
+
+.author a {
+  color: white;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.author {
+  padding-top: 6px;
+}
+
+.footer {
+  background-color: #777;
+  height: 120px;
+  color: black;
+  text-align: center;
+}
+
+.footer-links {
+  padding-top: 20px;
+  font-size: 1.1em;
+}
+
+.demo-image img {
+  width: 800px;
+  height: 500px;
+}
+
+.demo-image {
+  padding-bottom: 40px;
 }
