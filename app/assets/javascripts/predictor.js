@@ -12,13 +12,15 @@ $(document).on("ready", function() {
     setCity(map, $city);
     addEventPopups(map);
     $("#event_city_id").change(function() {
+      map.removeLayer(geojson);
       zoomToNewCity(map);
     });
     $("#event_category_id").change(function() {
       getEvents(map);
     });
     $("#event_product_type").change(function() {
-      addNeighborhoods(map, $city);
+      map.removeLayer(geojson);
+      addNeighborhoods(map);
     });
     info.addTo(map);
     legend.addTo(map);
@@ -83,7 +85,7 @@ function setCity(map, city) {
     success:function(city) {
       map.setView([city.latitude, city.longitude], 13)
       getEvents(map);
-      addNeighborhoods(map, city.name);
+      addNeighborhoods(map);
     }
   });
 };
@@ -105,13 +107,13 @@ function appendSidebarEvents(events, map) {
 
 var geojson;
 
-function addNeighborhoods(map, city) {
+function addNeighborhoods(map) {
   var $product = $("select#event_product_type").children(":selected").text();
+  var $city = $("select#event_city_id").children(":selected").text();
   $.ajax({
     url: '/neighborhoods.json',
-    data: {city: city, product: $product},
+    data: {city: $city, product: $product},
     success:function(neighborhoods) {
-      map.removeLayer(L.geoJson);
       geojson = L.geoJson(neighborhoods, {
         style: style,
         onEachFeature: onEachFeature
