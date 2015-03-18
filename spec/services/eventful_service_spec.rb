@@ -14,11 +14,11 @@ RSpec.describe EventfulService, :type => :model do
           end
 
           it "returns an event with a title" do
-            expect(events.first["title"]).to eq("Summit Fit Dojo Group Fitness & Kickboxing")
+            expect(events.first["title"]).to eq("Red and Jerry's")
           end
 
           it "returns an event with categories" do
-            expect(events.first["categories"]["category"]).to eq([{"name"=>"Health &amp; Wellness", "id"=>"support"}, {"name"=>"Outdoors &amp; Recreation", "id"=>"outdoors_recreation"}])
+            expect(events.first["categories"]["category"]).to eq([{"name"=>"Food &amp; Wine", "id"=>"food"}, {"name"=>"Nightlife &amp; Singles", "id"=>"singles_social"}, {"name"=>"Organizations &amp; Meetups", "id"=>"clubs_associations"}])
           end
         end
       end
@@ -35,11 +35,11 @@ RSpec.describe EventfulService, :type => :model do
           end
 
           it "returns an event with a title" do
-            expect(events.first["title"]).to eq("Newsies - The Musical")
+            expect(events.first["title"]).to eq("Mat Kearney")
           end
 
           it "returns an event with categories" do
-            expect(events.first["categories"]["category"]).to eq([{"name"=>"Film", "id"=>"movies_film"}, {"name"=>"Performing Arts", "id"=>"performing_arts"}])
+            expect(events.first["categories"]["category"]).to eq([{"name"=>"Concerts &amp; Tour Dates", "id"=>"music"}])
           end
         end
       end

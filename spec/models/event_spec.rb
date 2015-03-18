@@ -52,11 +52,11 @@ RSpec.describe Event, type: :model do
         end
 
         it "#title" do
-          expect(event.title).to eq("Summit Fit Dojo Group Fitness & Kickboxing")
+          expect(event.title).to eq("Red and Jerry's")
         end
 
         it "#categories" do
-          expect(event.categories).to eq(["Health &amp; Wellness", "Outdoors &amp; Recreation"])
+          expect(event.categories).to eq(["Food &amp; Wine", "Nightlife &amp; Singles", "Organizations &amp; Meetups"])
         end
 
         it "#format_time" do
@@ -64,7 +64,7 @@ RSpec.describe Event, type: :model do
         end
 
         it "#time_range" do
-          expect(event.time_range).to eq("12:00 am -  1:00 am")
+          expect(event.time_range).to eq("12:00 am - 11:00 pm")
         end
 
         it "#all_day?" do
@@ -84,7 +84,7 @@ RSpec.describe Event, type: :model do
         end
 
         it "#end_date" do
-          expect(event.end_date).to eq("10/20/15")
+          expect(event.end_date).to eq("12/8/15")
         end
 
         it "#date_range" do
@@ -101,7 +101,7 @@ RSpec.describe Event, type: :model do
       event = Event.where(options).first
 
       it "has a title" do
-        expect(event.title).to eq("Newsies - The Musical")
+        expect(event.title).to eq("Mat Kearney")
       end
     end
   end

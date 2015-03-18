@@ -6,7 +6,7 @@ RSpec.describe UberService, type: :model do
       VCR.use_cassette("eta") do
         options = {start_latitude: 39.7392,
                    start_longitude: -104.9903}
-        response = UberService.new("TApTByyy0vSDCbiRSeloT4AAvt7tdw").eta_times(options)
+        response = UberService.new(ENV["UBER_DEFAULT_BEARER_TOKEN"]).eta_times(options)
 
         it "returns the localized display name" do
           expect(response.first["localized_display_name"]).to eq("uberXL")
