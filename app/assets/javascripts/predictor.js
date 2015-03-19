@@ -1,7 +1,7 @@
 $(document).on("ready", function() {
   L.mapbox.accessToken = 'pk.eyJ1IjoiYmhvbGNvbWIiLCJhIjoiRkliLWdBVSJ9.wz_RjKxc0iOUgc9Vb2ff3A';
   var map = L.mapbox.map('map', 'bholcomb.lc7kd3m2', { zoomControl: false })
-  .setView([39.739, -104.990], 13);
+  .setView([39.739, -104.990], 12);
 
   map.scrollWheelZoom.disable();
 

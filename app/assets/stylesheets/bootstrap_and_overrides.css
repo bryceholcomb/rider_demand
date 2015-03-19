@@ -64,7 +64,7 @@ body {
 
 .info-box {
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   float: left;
 }
 
@@ -281,5 +281,5 @@ body {
 }
 
 .demo-image {
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
