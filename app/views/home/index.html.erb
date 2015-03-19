@@ -14,7 +14,7 @@
           <h3>with our innovative tools you can spend less time checking your phone and more time getting rides</h3>
         </div>
         <% if current_user.nil? %>
-          <%= link_to "Test Drive the App", test_drive_path, class: "btn btn-lg btn-success" %>
+          <%= link_to "Test Drive App", test_drive_path, class: "btn btn-lg btn-success" %>
           <%= link_to "Login with Uber", "/auth/uber", class: "btn btn-lg btn-uber" %>
         <% end %>
       </div>
