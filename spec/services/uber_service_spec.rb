@@ -4,8 +4,10 @@ RSpec.describe UberService, type: :model do
   describe "ETA endpoint" do
     context "called with a start longitude and latitude and authorization" do
       VCR.use_cassette("eta") do
-        options = {start_latitude: 39.7392,
-                   start_longitude: -104.9903}
+        options = {
+          start_latitude: 39.7392,
+          start_longitude: -104.9903
+        }
         response = UberService.new(ENV["UBER_DEFAULT_BEARER_TOKEN"]).eta_times(options)
 
         it "returns the localized display name" do
