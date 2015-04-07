@@ -3,6 +3,6 @@ namespace :data do
   task time_estimates: :environment do
     TimeEstimateBuilder.new.build_estimates
 
-    puts "
+    puts "#{TimeEstimate.count} total time estimates"
   end
 end
