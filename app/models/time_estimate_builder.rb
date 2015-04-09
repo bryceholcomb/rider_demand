@@ -15,10 +15,12 @@ class TimeEstimateBuilder
     latitude = hood.center_point.last
     longitude = hood.center_point.first
 
-    UberService.new(ENV["UBER_DEFAULT_BEARER_TOKEN"]).eta_times(start_latitude: latitude, start_longitude: longitude)
+    UberService.new(ENV["UBER_DEFAULT_BEARER_TOKEN"]).eta_times(start_latitude: latitude,
+                                                                start_longitude: longitude)
   end
 
   def build_time_estimate_with(type, hood)
-    hood.time_estimates.create()
+    hood.time_estimates.create(time: type["estimate"],
+                               product_type: type["display_name"])
   end
 end
