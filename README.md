@@ -10,7 +10,7 @@ I drive occasionally for Uber, and often find myself looking at the rider app to
 
 I set out to make a web application that would pull in event data as well as ETAs from Uber's API to plot areas of high demand and low supply on a map for other drivers to utilize.
 
-## Stack/Tools
+### Stack/Tools
 - Ruby on Rails
 - Uber API
 - Uber OmniAuth
@@ -20,6 +20,18 @@ I set out to make a web application that would pull in event data as well as ETA
 - Codeship for continuous integration and deployment
 - Bootstrap
 
-## My Focus
+### My Focus
 - AJAX calls to populate the map with event data and ETAs
+
+## Getting Started
+
+### Viewing in the browser
+- Clone the repository `git clone https://github.com/bryceholcomb/rider_demand`
+- Bundle and migrate `bundle && rake db:migrate`
+- Launch a Rails server `rails server`
+- Visit `http://localhost:3000` in your browser
+
+### Running the tests
+- All of the above
+- Run `rspec` or `rake` from the command line
 

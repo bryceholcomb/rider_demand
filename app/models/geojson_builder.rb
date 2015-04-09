@@ -30,7 +30,7 @@ class GeojsonBuilder
       },
       properties: {
         name: neighborhood.name,
-        eta: neighborhood.time_estimates.where(product_type: product).first.time
+        eta: neighborhood.current_time_estimate(product).time
       }
     }
   end
