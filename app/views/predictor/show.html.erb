@@ -12,8 +12,6 @@
         <%= select :event, :category_id, @categories %></span><br>
         <span class="predictor-option"><%= label_tag "Uber Product" %>
         <%= select :event, :product_type, @uber_products %></span><br>
-        <span class="predictor-option"><%= label_tag "Happening" %>
-        <%= select_date Date.today, prefix: :start_date %></span><br>
       </div>
     <% end %>
   </div>
