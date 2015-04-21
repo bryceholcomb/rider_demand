@@ -38,7 +38,7 @@ function getEvents(map) {
     data: { city: $city, category_id: $category },
     success:function(events) {
       $wheel.hide();
-      var geojson = $.parseJSON(events);
+      var geojson = $.parseJSON(events)["events"];
       map.featureLayer.setGeoJSON({
         type: "FeatureCollection",
         features: geojson
@@ -114,7 +114,7 @@ function addNeighborhoods(map) {
     url: '/neighborhoods.json',
     data: {city: $city, product: $product},
     success:function(neighborhoods) {
-      geojson = L.geoJson(neighborhoods, {
+      geojson = L.geoJson(neighborhoods["neighborhoods"], {
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
