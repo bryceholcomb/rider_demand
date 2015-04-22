@@ -28,6 +28,7 @@ gem 'd3-rails'
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem "skylight"
 gem "active_model_serializers"
+gem "dalli"
 
 group :development, :test, :staging do
   gem 'pry'
