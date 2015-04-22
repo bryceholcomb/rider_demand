@@ -28,6 +28,7 @@ gem 'd3-rails'
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem "skylight"
 gem "active_model_serializers"
+gem "dalli"
 
 group :development, :test, :staging do
   gem 'pry'
@@ -42,5 +43,5 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'spring', '~> 1.3.4'
 end

@@ -3,8 +3,10 @@ class EventfulService
   base_uri "http://api.eventful.com/json"
 
   def events(overrides = {})
-    events = JSON.parse(self.class.get("/events/search", query: overridden_options(overrides)))
-    events["events"]["event"]
+    Rails.cache.fetch("events/#{overrides}", expires_in: 12.hours) do
+      events = JSON.parse(self.class.get("/events/search", query: overridden_options(overrides)))
+      events["events"]["event"]
+    end
   end
 
   def categories
