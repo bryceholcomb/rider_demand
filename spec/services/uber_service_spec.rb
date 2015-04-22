@@ -11,19 +11,19 @@ RSpec.describe UberService, type: :model do
         response = UberService.new(ENV["UBER_DEFAULT_BEARER_TOKEN"]).eta_times(options)
 
         it "returns the localized display name" do
-          expect(response.first["localized_display_name"]).to eq("uberXL")
+          expect(response.first["localized_display_name"]).to eq("uberX")
         end
 
         it "returns the estimate" do
-          expect(response.first["estimate"]).to eq(202)
+          expect(response.first["estimate"]).to eq(88)
         end
 
         it "returns the display name" do
-          expect(response.first["display_name"]).to eq("uberXL")
+          expect(response.first["display_name"]).to eq("uberX")
         end
 
         it "returns the product id" do
-          expect(response.first["product_id"]).to eq("1c2d6363-0b64-45ad-b749-a539b186f376")
+          expect(response.first["product_id"]).to eq("b746437e-eab6-44ca-8079-25dfd6f861ab")
         end
       end
     end

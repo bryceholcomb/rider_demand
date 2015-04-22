@@ -43,7 +43,7 @@ RSpec.describe Event, type: :model do
 
         context "#format_time" do
           it "returns a formatted time with a valid time given" do
-            expect(event.format_time(event.start_time)).to eq("12:00 am")
+            expect(event.format_time(event.start_time)).to eq(" 9:00 pm")
           end
 
           it "returns 'unspecified' with not time given" do
@@ -52,23 +52,23 @@ RSpec.describe Event, type: :model do
         end
 
         it "#title" do
-          expect(event.title).to eq("Red and Jerry's")
+          expect(event.title).to eq("The Reggae Room")
         end
 
         it "#categories" do
-          expect(event.categories).to eq(["Food &amp; Wine", "Nightlife &amp; Singles", "Organizations &amp; Meetups"])
+          expect(event.categories).to eq(["Nightlife &amp; Singles"])
         end
 
         it "#format_time" do
-          expect(event.format_time(event.start_time)).to eq("12:00 am")
+          expect(event.format_time(event.start_time)).to eq(" 9:00 pm")
         end
 
         it "#time_range" do
-          expect(event.time_range).to eq("12:00 am - 11:00 pm")
+          expect(event.time_range).to eq(" 9:00 pm -  2:00 am")
         end
 
         it "#all_day?" do
-          expect(event.all_day?).to eq(true)
+          expect(event.all_day?).to eq(false)
         end
 
         it "#latitude" do
@@ -80,15 +80,15 @@ RSpec.describe Event, type: :model do
         end
 
         it "#start_date" do
-          expect(event.start_date).to eq("3/10/15")
+          expect(event.start_date).to eq("1/8/15")
         end
 
         it "#end_date" do
-          expect(event.end_date).to eq("12/8/15")
+          expect(event.end_date).to eq("10/2/15")
         end
 
         it "#date_range" do
-          expect(event.date_range).to eq("3/10/15")
+          expect(event.date_range).to eq("1/8/15 - 10/2/15")
         end
       end
     end

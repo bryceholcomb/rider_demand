@@ -14,11 +14,11 @@ RSpec.describe EventfulService, :type => :model do
           end
 
           it "returns an event with a title" do
-            expect(events.first["title"]).to eq("Red and Jerry's")
+            expect(events.first["title"]).to eq("The Reggae Room")
           end
 
           it "returns an event with categories" do
-            expect(events.first["categories"]["category"]).to eq([{"name"=>"Food &amp; Wine", "id"=>"food"}, {"name"=>"Nightlife &amp; Singles", "id"=>"singles_social"}, {"name"=>"Organizations &amp; Meetups", "id"=>"clubs_associations"}])
+            expect(events.first["categories"]["category"]).to eq([{"name"=>"Nightlife &amp; Singles", "id"=>"singles_social"}])
           end
         end
       end

@@ -16,12 +16,12 @@ class EventfulService
   def default_event_options
     { app_key: ENV["EVENTFUL_KEY"],
       location: "39.7392, -104.9903",
-      within: 10,
+      within: 5,
       units: "mi",
       include: "categories",
       mature: "normal",
       sort_order: "popularity",
-      page_size: 400,
+      page_size: 200,
       date: "Today" }
   end
 

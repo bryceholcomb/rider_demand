@@ -16,7 +16,7 @@ RSpec.describe Api::V1::EventsController, type: :controller do
 
         events = JSON.parse(response.body)["events"]
 
-        expect(events.first["properties"]["title"]).to eq("Nightwish  with Sabaton, Delain")
+        expect(events.first["properties"]["title"]).to eq("Alkaline Trio")
       end
     end
 
@@ -28,7 +28,7 @@ RSpec.describe Api::V1::EventsController, type: :controller do
 
         events = JSON.parse(response.body)["events"]
 
-        expect(events.first["properties"]["title"]).to eq("Nightwish  with Sabaton, Delain")
+        expect(events.first["properties"]["title"]).to eq("Alkaline Trio")
       end
     end
 
@@ -40,7 +40,7 @@ RSpec.describe Api::V1::EventsController, type: :controller do
 
         events = JSON.parse(response.body)["events"]
 
-        expect(events.first["properties"]["title"]).to eq("Nightwish  with Sabaton, Delain")
+        expect(events.first["properties"]["title"]).to eq("Alkaline Trio")
       end
     end
   end

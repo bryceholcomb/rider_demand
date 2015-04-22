@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer TApTByyy0vSDCbiRSeloT4AAvt7tdw
+      - Bearer aCOlGTnz4RuD6cNMkAaxtlmRu4y9ZH
   response:
     status:
       code: 200
@@ -17,32 +17,32 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 10 Mar 2015 23:43:37 GMT
+      - Wed, 22 Apr 2015 16:08:11 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '523'
+      - '657'
       Connection:
       - keep-alive
       X-Rate-Limit-Remaining:
-      - '995'
+      - '936'
       Content-Language:
       - en
       Etag:
-      - '"8ef8c8f5a739f567e7f3ba86686324f204ca1ead"'
+      - '"09d3c8ecd5dac9d5579f52c6339a815edfb11508"'
       X-Rate-Limit-Reset:
-      - '1426032000'
+      - '1429722000'
       X-Rate-Limit-Limit:
       - '1000'
       X-Uber-App:
       - uberex-nonsandbox
-      Max-Age=31536000;:
-      - includeSubDomains; preload
-      1;:
-      - mode=block
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Xss-Protection:
+      - 1; mode=block
     body:
       encoding: UTF-8
-      string: '{"times":[{"localized_display_name":"uberXL","estimate":202,"display_name":"uberXL","product_id":"1c2d6363-0b64-45ad-b749-a539b186f376"},{"localized_display_name":"uberX","estimate":202,"display_name":"uberX","product_id":"b746437e-eab6-44ca-8079-25dfd6f861ab"},{"localized_display_name":"UberBLACK","estimate":83,"display_name":"UberBLACK","product_id":"53641edd-8142-4491-8f83-3c366fecd276"},{"localized_display_name":"UberSUV","estimate":83,"display_name":"UberSUV","product_id":"a79464c3-1aec-492b-95fd-c1e96f32ec83"}]}'
-    http_version:
-  recorded_at: Tue, 10 Mar 2015 23:43:36 GMT
+      string: '{"times":[{"localized_display_name":"uberX","estimate":88,"display_name":"uberX","product_id":"b746437e-eab6-44ca-8079-25dfd6f861ab"},{"localized_display_name":"uberXL","estimate":238,"display_name":"uberXL","product_id":"1c2d6363-0b64-45ad-b749-a539b186f376"},{"localized_display_name":"uberSELECT","estimate":227,"display_name":"uberSELECT","product_id":"54368029-1d2f-4864-80a7-eb79703cb3af"},{"localized_display_name":"UberBLACK","estimate":71,"display_name":"UberBLACK","product_id":"53641edd-8142-4491-8f83-3c366fecd276"},{"localized_display_name":"UberSUV","estimate":71,"display_name":"UberSUV","product_id":"a79464c3-1aec-492b-95fd-c1e96f32ec83"}]}'
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 16:08:12 GMT
 recorded_with: VCR 2.9.3
