@@ -42,5 +42,5 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'spring', '~> 1.3.4'
 end
