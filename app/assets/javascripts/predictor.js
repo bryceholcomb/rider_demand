@@ -47,7 +47,8 @@ function getEvents(map) {
       addEventPopups(map);
     },
     error:function() {
-      alert("Could not load the events");
+      $wheel.hide();
+      alert("There are no events today for that category. Please select another category.");
     }
   });
 };
