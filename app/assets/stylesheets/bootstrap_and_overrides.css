@@ -69,7 +69,11 @@ body {
 }
 
 .image-row {
-  padding-top: 40px;
+  margin-top: 60px;
+}
+
+.image-row img {
+  max-width: 100%;
 }
 
 .user-image {
