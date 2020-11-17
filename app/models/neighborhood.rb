@@ -1,4 +1,4 @@
-class Neighborhood < ActiveRecord::Base
+class Neighborhood < ApplicationRecord
   has_many :time_estimates
   belongs_to :city
 
