@@ -1,4 +1,4 @@
-class TimeEstimate < ActiveRecord::Base
+class TimeEstimate < ApplicationRecord
   belongs_to :neighborhood
   scope :unique_types, -> { select(:product_type).uniq }
 

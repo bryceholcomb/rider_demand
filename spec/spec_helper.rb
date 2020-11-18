@@ -1,13 +1,3 @@
-require "simplecov"
-require "codeclimate-test-reporter"
-
-CodeClimate::TestReporter.start
-
-SimpleCov.start do
-  add_filter "/spec/"
-  add_filter "/config/"
-end
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

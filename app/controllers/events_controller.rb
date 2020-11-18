@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    city = City.find_by(name: params["city"])
+    city = City.find_by(id: params["city_id"])
     category_id = params["category_id"]
     options = { location: city.lat_long, category: category_id  }
     @events = Event.where(options)

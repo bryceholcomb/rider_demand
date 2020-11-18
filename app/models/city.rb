@@ -1,4 +1,4 @@
-class City < ActiveRecord::Base
+class City < ApplicationRecord
   CITIES = [
     DENVER = 'Denver',
     SAN_FRANCISCO = 'San Francisco'
