@@ -50,8 +50,10 @@ function addNeighborhoods(map) {
 
       var hoveredStateId = null
       map.on('mousemove', 'neighborhood-fills', function (e) {
-        // TODO Reset the info box
         if (e.features.length > 0) {
+          var neighborhood = e.features[0].properties;
+          $('#menu #neighborhood').text(neighborhood.name);
+          $('#menu #minutes').text(neighborhood.eta / 100 + " minutes");
           if (hoveredStateId) {
             map.setFeatureState(
               { source: 'neighborhoods', id: hoveredStateId },
@@ -68,8 +70,9 @@ function addNeighborhoods(map) {
 
       // When the mouse leaves the state-fill layer, update the feature state of the
       // previously hovered feature.
-      map.on('mouseleave', 'neighborhood-fills', function () {
-        // TODO Reset the info box
+      map.on('mouseleave', 'neighborhood-fills', function (thing) {
+        $('#menu #neighborhood').text("Hover over a neighborhood");
+        $('#menu #minutes').text("");
         if (hoveredStateId) {
           map.setFeatureState(
             { source: 'neighborhoods', id: hoveredStateId },
