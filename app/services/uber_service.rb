@@ -10,7 +10,7 @@ class UberService
   end
 
   def eta_times(options = {})
-    self.class.get("/estimates/time", query: options)["times"]
+    response = self.class.get("/estimates/time", query: options)["times"]
   end
 
   private

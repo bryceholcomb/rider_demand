@@ -1,8 +1,8 @@
 class NeighborhoodsController < ApplicationController
   def index
-    city = City.find_by(name: params["city"])
+    city = City.find_by(id: params["city_id"])
     product = params["product"]
-    @neighborhoods = Neighborhood.where(city: city.id).by_product_type(product).includes(:time_estimates)
+    @neighborhoods = city.neighborhoods
     @geojson = Array.new
     build_geojson(@neighborhoods, @geojson, product)
 
