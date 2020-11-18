@@ -19,7 +19,7 @@ function getEvents(map) {
         el.className = 'marker';
 
         // make a marker for each feature and add to the map
-        new mapboxgl.Marker(el)
+        new mapboxgl.Marker({color: "#00607d", symbol: "circle", size: "medium"})
           .setLngLat(marker.geometry.coordinates)
           .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
             .setHTML(

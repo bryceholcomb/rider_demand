@@ -42,8 +42,8 @@ function addNeighborhoods(map) {
           'fill-opacity': [
             'case',
             ['boolean', ['feature-state', 'hover'], false],
-            0.7,
-            1,
+            0.4,
+            0.9,
           ]
         }
       });
@@ -80,16 +80,6 @@ function addNeighborhoods(map) {
       });
     }
   });
-};
-
-function getColor(eta) {
-  return eta > 3000 ? '#b10026' :
-    eta > 2500  ? '#e31a1c' :
-    eta > 2000  ? '#fc4e2a' :
-    eta > 1500  ? '#fd8d3c' :
-    eta > 1000  ? '#feb24c' :
-    eta > 500   ? '#fed976' :
-    '#ffffb2';
 };
 
 function style(feature) {

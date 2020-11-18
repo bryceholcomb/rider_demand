@@ -4,7 +4,7 @@ $( document ).on('turbolinks:load', function() {
     container: 'map', // container id
     style: 'mapbox://styles/bholcomb/ckhm6e4iv0yxp19rqabe81eyz', // style URL
     center: {lat: 39.739, lon: -104.990}, // starting position [lng, lat]
-    zoom: 12 // starting zoom
+    zoom: 11 // starting zoom
   });
 
   map.addControl(new mapboxgl.NavigationControl(), "bottom-right");

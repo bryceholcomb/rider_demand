@@ -8,7 +8,7 @@ function setCity(map, cityId) {
     url: '/cities.json',
     data: {city_id: cityId},
     success:function(city) {
-      map.setCenter({lat: city.latitude, lon: city.longitude}, 12)
+      map.setCenter({lat: city.latitude, lon: city.longitude}, 11)
       getEvents(map);
       addNeighborhoods(map);
     }
